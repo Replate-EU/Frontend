@@ -2,6 +2,8 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
+import FormBusiness from './FormBusiness';
+import FormVolunteer from './FormVolunteer';
 
 const Box = styled.div`
 display: flex;
@@ -36,7 +38,12 @@ padding: 25px;
 `
 
 
+
+
 function App() {
+
+  
+
   return (
     <div className="App">
       
@@ -59,6 +66,13 @@ function App() {
       </Box>
       </div>
       </Route>
+      <Route exact path="/business">
+        <FormBusiness />
+      </Route>
+      <Route exact path="/volunteer">
+        <FormVolunteer />
+      </Route>
+      
       </Switch>
       </Container>
       <Borders></Borders>
