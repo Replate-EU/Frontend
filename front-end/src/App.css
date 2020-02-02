@@ -21,3 +21,27 @@
   border-radius: 2px;
 }
 
+.form {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+/* 
+.form label {
+  padding: 5px 0;
+} */
+
+.form input {
+  width: 240px;
+  height: 24px;
+  padding: 0 2px;
+  margin: 5px 0;
+}
+
+.form button {
+  background: white;
+  border: 3px solid black;
+  box-shadow: 2px 2px black;
+  margin-top: 16px;
+  
+}

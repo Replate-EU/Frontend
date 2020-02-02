@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import './App.css';
 import FormBusiness from './FormBusiness';
 import FormVolunteer from './FormVolunteer';
+import SignUpBusiness from './SignUpBusiness';
+import SignUpVolunteer from './SignUpVolunteer';
 
 const Box = styled.div`
 display: flex;
@@ -72,8 +74,16 @@ function App() {
       <Route exact path="/volunteer">
         <FormVolunteer />
       </Route>
+      <Route exact path="/business/signup">
+        <SignUpBusiness />
+      </Route>
+      <Route exact path="/volunteer/signup">
+        <SignUpVolunteer />
+      </Route>
+      
       
       </Switch>
+      
       </Container>
       <Borders></Borders>
     </div>
