@@ -6,6 +6,8 @@ import FormBusiness from './FormBusiness';
 import FormVolunteer from './FormVolunteer';
 import SignUpBusiness from './SignUpBusiness';
 import Login from './Login';
+import BusinessPickups from './BusinessPickups';
+import VolunteerPickups from './VolunteerPickups';
 
 const Box = styled.div`
 display: flex;
@@ -80,7 +82,12 @@ function App() {
       <Route exact path="/login">
         <Login />
       </Route>
-      
+      <Route exact path="/business/pickups">
+        <BusinessPickups />
+      </Route>
+      <Route exact path="/volunteer/pickups">
+        <VolunteerPickups />
+      </Route>
       
       </Switch>
       

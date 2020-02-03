@@ -16,33 +16,41 @@ width: 49%;
 `
 
 export default function Login() {
-    const [check, setCheck] = useState(true);
+    const [type, setType] = useState(true);
+
+    const history = useHistory();
 
     const initialState = {
         
         username: '',
-        contact_number: '',
+        
         // email: '',
         password: '',
-        user_type: false,
+        user_type: 'volunteer',
       }
       
     
       function handleSubmit(values, actions) {
           console.log(values);
-
+          if(!type) {
+            values.user_type = 'business';
+          }
+          // console.log(values.user_type);
+          
           axios
-          .get("https://replate-eu.herokuapp.com/")
+          .post("https://localhost:7000/api/auth/login", values)
           .then(res => {
-              console.log(res)
+              console.log(res) 
+              //should work, we'll see when api is posted
+              history.push(`/${values.user_type}/pickups`);
           })
           .catch(err => {
               console.log(err)
           })
       }
 
-      function handleCheck() {
-        setCheck(!check);
+      function handleType() {
+        setType(!type);
       }
 
     return(
@@ -69,7 +77,7 @@ export default function Login() {
             className="input"/>
             <ErrorMessage name="name" component="div" className="error"/> */}
 
-            <label>{check ? 'Username' : 'Company Name' }</label>
+            <label>{type ? 'Username' : 'Company Name' }</label>
             <Field
             type="text"
             id="username"
@@ -101,15 +109,10 @@ export default function Login() {
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
             
-        <label>User Type: {check ? 'VOLUNTEER' : 'BUSINESS' }</label>
-            <Field
-            type="checkbox"
-            id="user_type"
-            name="user_type"
-            className="input"
-            onChange={handleCheck}
-            />
-            <ErrorMessage name="user_type" component="div" className="error"/>
+            <label>Account type: </label>
+            <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button>
+            
+            {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
             {/* <label>Repeat password</label>
             <Field
             type="password"
@@ -117,7 +120,7 @@ export default function Login() {
             name="repeat_password"
             className="input"/>
             <ErrorMessage name="repeat_password" component="div" className="error"/> */}
-            <button type="submit">Continue</button>
+            <button type="submit">LOGIN</button>
             
 
           </Form>

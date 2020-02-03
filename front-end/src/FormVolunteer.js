@@ -25,11 +25,12 @@ export default function FormBusiness() {
     //     repeat_password: Yup.string().required( 'please enter the same password')
     //   });
       const history = useHistory();
-      const goToSignUp = () => { 
+      const goToLogin = () => { 
         history.push("/login");
       }
     
       const initialState = {
+        name: '',
         username: '',
         contact_number: '',
         // email: '',
@@ -43,16 +44,16 @@ export default function FormBusiness() {
         const allValues = {
           ...values,
           
-          user_type: 'business',
+          user_type: 'volunteer',
         }
         delete allValues.repeat_password;
         // console.log(allValues);
 
         axios
-        .post('http://localhost:7000/api/auth/register', allValues)
+        .post('https://replate-eu.herokuapp.com/api/auth/register', allValues)
         .then(res => {
           console.log(res);
-          goToSignUp();
+          goToLogin();
         })
         .catch(err => {
           console.log(err)
@@ -75,6 +76,14 @@ export default function FormBusiness() {
         initialValues={initialState}
         >
           <Form className="form">
+          <label>Name</label>
+            <Field
+            type="text"
+            id="name"
+            name="name"
+            className="input"/>
+            <ErrorMessage name="name" component="div" className="error"/>
+
             <label>Username</label>
             <Field
             type="text"
