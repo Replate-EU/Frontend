@@ -5,7 +5,7 @@ import './App.css';
 import FormBusiness from './FormBusiness';
 import FormVolunteer from './FormVolunteer';
 import SignUpBusiness from './SignUpBusiness';
-import SignUpVolunteer from './SignUpVolunteer';
+import Login from './Login';
 
 const Box = styled.div`
 display: flex;
@@ -77,8 +77,8 @@ function App() {
       <Route exact path="/business/signup">
         <SignUpBusiness />
       </Route>
-      <Route exact path="/volunteer/signup">
-        <SignUpVolunteer />
+      <Route exact path="/login">
+        <Login />
       </Route>
       
       
