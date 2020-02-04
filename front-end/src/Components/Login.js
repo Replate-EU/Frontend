@@ -40,9 +40,9 @@ export default function Login() {
       .then(res => {
         console.log(res);
         // res.body.token;
-        localStorage.setItem("token", JSON.stringify(res.body.token));
+        localStorage.setItem("token", res.data.token);
         //should work, we'll see when api is posted
-        // history.push(`/${res.data.user_type}/pickups`);
+        history.push(`/${res.data.user_type}/pickups`);
       })
       .catch(err => {
         console.log(err);

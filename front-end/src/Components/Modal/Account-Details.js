@@ -6,7 +6,7 @@ export default function AccountDetails() {
   const [details, setDetails] = useState({});
   useEffect(() => {
     axiosWithAuth()
-      .get("/api/users/24")
+      .get("/api/users")
       .then(res => {
         console.log(res);
         let user = res.data;
@@ -30,7 +30,7 @@ export default function AccountDetails() {
     event.preventDefault();
     const updateUser = { ...details, ...update };
     axiosWithAuth()
-      .put("/api/users/24", updateUser)
+      .put("/api/users", updateUser)
       .then(res => {
         setDetails(updateUser);
       })
