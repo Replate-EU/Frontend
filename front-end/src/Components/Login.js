@@ -31,7 +31,7 @@ export default function Login() {
       
     
       function handleSubmit(values, actions) {
-          console.log(values);
+          // console.log(values);
           if(!type) {
             values.user_type = 'business';
           }
@@ -40,18 +40,18 @@ export default function Login() {
           axios
           .post("https://replate-eu.herokuapp.com/api/auth/login", values)
           .then(res => {
-              console.log(res) 
+              console.log(res.data.token) 
               //should work, we'll see when api is posted
-              // history.push(`/${res.data.user_type}/pickups`);
+              // history.push(`/${res.data.user_type}/dashboard`);
           })
           .catch(err => {
               console.log(err)
           })
       }
 
-      function handleType() {
-        setType(!type);
-      }
+      // function handleType() {
+      //   setType(!type);
+      // }
 
     return(
         <Container>
@@ -69,14 +69,6 @@ export default function Login() {
         >
           <Form className="form">
 
-          {/* <label>Name</label>
-            <Field
-            type="text"
-            id="name"
-            name="name"
-            className="input"/>
-            <ErrorMessage name="name" component="div" className="error"/> */}
-
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
             <label>Username</label>
             <Field
@@ -85,14 +77,6 @@ export default function Login() {
             name="username"
             className="input"/>
             <ErrorMessage name="username" component="div" className="error"/>
-
-            {/* <label>Phone</label>
-            <Field
-            type="tel"
-            id="contact_number"
-            name="contact_number"
-            className="input"/>
-            <ErrorMessage name="contact_number" component="div" className="error"/> */}
 
             {/* <label>E-mail</label>
             <Field
@@ -114,13 +98,7 @@ export default function Login() {
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
             
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
-            {/* <label>Repeat password</label>
-            <Field
-            type="password"
-            id="repeat_password"
-            name="repeat_password"
-            className="input"/>
-            <ErrorMessage name="repeat_password" component="div" className="error"/> */}
+          
             <button type="submit">LOGIN</button>
             
 

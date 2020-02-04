@@ -1,10 +1,9 @@
 import React from 'react';
 
-
-export default function BusinessPickups() {
+export default function BusinessPickupCard() {
     return(
         <div>
-            business
+            
         </div>
     )
 }

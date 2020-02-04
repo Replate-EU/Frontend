@@ -1,12 +1,12 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
 import FormBusiness from './Components/Business/FormBusiness';
 import FormVolunteer from './Components/Volunteer/FormVolunteer';
 import Login from './Components/Login';
-import BusinessPickups from './Components/Business/BusinessPickups';
-import VolunteerPickups from './Components/Volunteer/VolunteerPickups';
+import BusinessDashboard from './Components/Business/BusinessDashboard';
+import VolunteerDashboard from './Components/Volunteer/VolunteerDashboard';
 
 const Box = styled.div`
 display: flex;
@@ -21,7 +21,6 @@ const Borders = styled.div`
 border: 3px solid black;
 padding: 10px 0;
 width: 50%;
-
 `
 const Container = styled.div`
 display: flex;
@@ -32,7 +31,6 @@ height: 100vh;
 width: 50%;
 margin: -3px 0;
 `
-
 const Button = styled.button`
 background: white;
 border: 2px solid black;
@@ -45,14 +43,20 @@ padding: 25px;
 
 function App() {
 
-  
-
   return (
     <div className="App">
       
-      <Borders></Borders>
+      <Borders>
+
+        <nav>
+        <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink>
+      </nav>
+      
+      </Borders>
+      
       <Container>
         <Switch>
+          
         <Route exact path="/">
       <h1>Sign Up!</h1>
       <div className="Boxes">
@@ -79,11 +83,11 @@ function App() {
       <Route exact path="/login">
         <Login />
       </Route>
-      <Route exact path="/business/pickups">
-        <BusinessPickups />
+      <Route exact path="/business/dashboard">
+        <BusinessDashboard />
       </Route>
-      <Route exact path="/volunteer/pickups">
-        <VolunteerPickups />
+      <Route exact path="/volunteer/dashboard">
+        <VolunteerDashboard />
       </Route>
       
       </Switch>

@@ -1,10 +1,9 @@
 import React from 'react';
 
-
-export default function VolunteerPickups() {
+export default function VolunteerPickupCard() {
     return(
         <div>
-            volunteer
+            
         </div>
     )
 }
