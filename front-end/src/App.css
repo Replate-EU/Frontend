@@ -51,7 +51,7 @@
   height: 500px;
   background: snow;
   border: 1px solid #ccc;
-  box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
+  box-shadow: -2rem 2rem 2rem rgb(167, 160, 160);
   opacity: 1;
   visibility: visible;
   z-index: 2;
