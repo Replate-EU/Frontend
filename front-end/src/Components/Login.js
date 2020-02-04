@@ -26,7 +26,7 @@ export default function Login() {
         
         // email: '',
         password: '',
-        user_type: 'volunteer',
+        // user_type: 'volunteer',
       }
       
     
@@ -38,11 +38,11 @@ export default function Login() {
           // console.log(values.user_type);
           
           axios
-          .post("https://localhost:7000/api/auth/login", values)
+          .post("https://replate-eu.herokuapp.com/api/auth/login", values)
           .then(res => {
               console.log(res) 
               //should work, we'll see when api is posted
-              history.push(`/${values.user_type}/pickups`);
+              // history.push(`/${res.data.user_type}/pickups`);
           })
           .catch(err => {
               console.log(err)
@@ -77,7 +77,8 @@ export default function Login() {
             className="input"/>
             <ErrorMessage name="name" component="div" className="error"/> */}
 
-            <label>{type ? 'Username' : 'Company Name' }</label>
+            {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
+            <label>Username</label>
             <Field
             type="text"
             id="username"
@@ -109,8 +110,8 @@ export default function Login() {
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
             
-            <label>Account type: </label>
-            <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button>
+            {/* <label>Account type: </label>
+            <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
             
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
             {/* <label>Repeat password</label>

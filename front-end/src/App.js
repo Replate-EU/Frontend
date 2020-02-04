@@ -2,12 +2,11 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
-import FormBusiness from './FormBusiness';
-import FormVolunteer from './FormVolunteer';
-import SignUpBusiness from './SignUpBusiness';
-import Login from './Login';
-import BusinessPickups from './BusinessPickups';
-import VolunteerPickups from './VolunteerPickups';
+import FormBusiness from './Components/Business/FormBusiness';
+import FormVolunteer from './Components/Volunteer/FormVolunteer';
+import Login from './Components/Login';
+import BusinessPickups from './Components/Business/BusinessPickups';
+import VolunteerPickups from './Components/Volunteer/VolunteerPickups';
 
 const Box = styled.div`
 display: flex;
@@ -76,9 +75,7 @@ function App() {
       <Route exact path="/volunteer">
         <FormVolunteer />
       </Route>
-      <Route exact path="/business/signup">
-        <SignUpBusiness />
-      </Route>
+      
       <Route exact path="/login">
         <Login />
       </Route>
