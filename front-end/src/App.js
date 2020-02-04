@@ -7,6 +7,7 @@ import FormVolunteer from './Components/Volunteer/FormVolunteer';
 import Login from './Components/Login';
 import BusinessDashboard from './Components/Business/BusinessDashboard';
 import VolunteerDashboard from './Components/Volunteer/VolunteerDashboard';
+import VolunteerPickups from './Components/Volunteer/VolunteerPickups';
 
 const Box = styled.div`
 display: flex;
@@ -49,7 +50,10 @@ function App() {
       <Borders>
 
         <nav>
-        <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink>
+        <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
+        <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
+        <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
+        <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
       </nav>
       
       </Borders>
@@ -88,6 +92,9 @@ function App() {
       </Route>
       <Route exact path="/volunteer/dashboard">
         <VolunteerDashboard />
+      </Route>
+      <Route exact path="/volunteer/pickups">
+        <VolunteerPickups />
       </Route>
       
       </Switch>

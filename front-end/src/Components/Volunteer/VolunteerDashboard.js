@@ -3,12 +3,6 @@ import axios from 'axios';
 import VolunteerPickupCard from './VolunteerPickupCard';
 import styled from 'styled-components';
 
-const Pickup = styled.div`
-background: red;
-width: 30%;
-margin: 10px;
-`
-
 const Div = styled.div`
 display: flex;
 flex-flow: row wrap;
@@ -66,18 +60,14 @@ export default function VolunteerDashboard() {
     ]
 
     return (
-        <Div>
-            {pickups.map(pickup => {
-                return(
-                    <Pickup>
-                        <h2> </h2>
-                        <p>type: {pickup.food_type}</p>
-                        <p>quantity: {pickup.quantity}</p>
-                        <p>Preferred pickup time:{pickup.pickup_time}</p>
-                        <p>Business: {pickup.business_id}</p>
-                    </Pickup>
-                )
-            })}
-        </Div>
+        <div>
+           <Div>
+                {pickups.map(pickup => {
+                    return(
+                        <VolunteerPickupCard pickup={pickup}/>
+                    )
+                })}
+            </Div> 
+        </div>
     )
 }
