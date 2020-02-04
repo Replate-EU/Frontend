@@ -39,8 +39,8 @@ export default function Login() {
       .post("https://replate-eu.herokuapp.com/api/auth/login", values)
       .then(res => {
         console.log(res);
-        res.body.token;
-        localStorage.setItem('token', JSON.stringify(res.body.token))
+        // res.body.token;
+        localStorage.setItem("token", JSON.stringify(res.body.token));
         //should work, we'll see when api is posted
         // history.push(`/${res.data.user_type}/pickups`);
       })
