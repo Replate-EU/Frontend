@@ -7,7 +7,7 @@ import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
 import BusinessPickups from "./Components/Business/BusinessPickups";
 import VolunteerPickups from "./Components/Volunteer/VolunteerPickups";
-import Modal from "./Components/modal";
+import Modal from "./Components/Modal/Modal";
 
 const Box = styled.div`
   display: flex;
