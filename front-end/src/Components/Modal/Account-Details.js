@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
-import axiosWithAuth from "axios";
+import axiosWithAuth from "../../auth/axiosWithAuth";
 import Form from "./Edit-Form";
 
 export default function AccountDetails() {
-  //   useEffect(() => {
-  //     axiosWithAuth
-  //       .get("localhost:7000/api/users/1")
-  //       .then(res => {
-  //         console.log(res);
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       });
-  //   }, []);
-  const [details, setDetails] = useState({
-    username: "darragh1",
-    name: "Darragh Ferry",
-    user_type: "volunteer",
-    contact_number: "123-456-7890"
-  });
+  const [details, setDetails] = useState({});
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/api/users/24")
+      .then(res => {
+        console.log(res);
+        let user = res.data;
+        delete user.id;
+        delete user.account_details;
+        setDetails(user);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
   const [update, setUpdate] = useState({});
   const [edit, setEdit] = useState(false);
 
@@ -29,9 +28,17 @@ export default function AccountDetails() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setDetails({ ...details, ...update });
+    const updateUser = { ...details, ...update };
+    axiosWithAuth()
+      .put("/api/users/24", updateUser)
+      .then(res => {
+        setDetails(updateUser);
+      })
+      .catch(err => {
+        console.log(err);
+      });
     showEdit();
-    console.log(details);
+    console.log(updateUser);
   }
 
   function showEdit() {
@@ -49,7 +56,6 @@ export default function AccountDetails() {
       ) : (
         <div className="account">
           <h2>Account Details</h2>
-          <h3>Name: {details.name}</h3>
           <h3>Username: {details.username}</h3>
           <h3>Account Type: {details.user_type}</h3>
           <h3>Contact: {details.contact_number}</h3>
