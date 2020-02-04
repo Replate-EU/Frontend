@@ -6,6 +6,15 @@ import App from "./App";
 import thunk from "redux-thunk";
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
+import {
+  appStateReducer,
+  userReducer,
+  tokenReducer,
+  availablePickupsReducer,
+  acceptedPickupsReducer,
+  listedPickupsReducer,
+  userDetailsReducer
+} from "./state/reducers";
 // import * as serviceWorker from './serviceWorker';
 /* 
 state = {

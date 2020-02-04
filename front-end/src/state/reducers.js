@@ -60,7 +60,7 @@ export function availablePickupsReducer(
 
 //reducer 5, accepted pickups
 const initialAcceptedPickups = [];
-export function aceptedPickupsReducer(
+export function acceptedPickupsReducer(
   acceptedPickups = initialAcceptedPickups,
   action
 ) {
