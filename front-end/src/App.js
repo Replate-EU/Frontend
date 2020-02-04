@@ -2,10 +2,11 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
-import FormBusiness from './FormBusiness';
-import FormVolunteer from './FormVolunteer';
-import SignUpBusiness from './SignUpBusiness';
-import SignUpVolunteer from './SignUpVolunteer';
+import FormBusiness from './Components/Business/FormBusiness';
+import FormVolunteer from './Components/Volunteer/FormVolunteer';
+import Login from './Components/Login';
+import BusinessPickups from './Components/Business/BusinessPickups';
+import VolunteerPickups from './Components/Volunteer/VolunteerPickups';
 
 const Box = styled.div`
 display: flex;
@@ -74,13 +75,16 @@ function App() {
       <Route exact path="/volunteer">
         <FormVolunteer />
       </Route>
-      <Route exact path="/business/signup">
-        <SignUpBusiness />
-      </Route>
-      <Route exact path="/volunteer/signup">
-        <SignUpVolunteer />
-      </Route>
       
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/business/pickups">
+        <BusinessPickups />
+      </Route>
+      <Route exact path="/volunteer/pickups">
+        <VolunteerPickups />
+      </Route>
       
       </Switch>
       

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -15,66 +15,69 @@ align-items: center;
 width: 49%;
 `
 
-export default function FormBusiness() {
+export default function Login() {
+    const [type, setType] = useState(true);
 
-    // const validationSchema = Yup.object().shape({
-    //     company_name: Yup.string().required('please enter your company name'),
-    //     phone: Yup.string().required('please enter your phone number'),
-    //     email: Yup.string().email('put a valid email pls').required('please enter your email'),
-    //     password: Yup.string().required('please enter a password'),
-    //     repeat_password: Yup.string().required( 'please enter the same password')
-    //   });
-      const history = useHistory();
-      const goToSignUp = () => { 
-        history.push("/volunteer/signup");
-      }
-    
-      const initialState = {
+    const history = useHistory();
+
+    const initialState = {
+        
         username: '',
-        contact_number: '',
+        
         // email: '',
         password: '',
-        repeat_password: '',
+        // user_type: 'volunteer',
       }
+      
     
       function handleSubmit(values, actions) {
-        // console.log(values);
-        // console.log(actions);
-        const allValues = {
-          ...values,
+          console.log(values);
+          if(!type) {
+            values.user_type = 'business';
+          }
+          // console.log(values.user_type);
           
-          user_type: 'business',
-        }
-        delete allValues.repeat_password;
-        // console.log(allValues);
+          axios
+          .post("https://replate-eu.herokuapp.com/api/auth/login", values)
+          .then(res => {
+              console.log(res) 
+              //should work, we'll see when api is posted
+              // history.push(`/${res.data.user_type}/pickups`);
+          })
+          .catch(err => {
+              console.log(err)
+          })
+      }
 
-        axios
-        .post('http://localhost:7000/api/auth/register', allValues)
-        .then(res => {
-          console.log(res);
-          goToSignUp();
-        })
-        .catch(err => {
-          console.log(err)
-        })
-        
-    }
-    
+      function handleType() {
+        setType(!type);
+      }
+
     return(
         <Container>
 
         <Column>
-          <h1>Volunteer Sign up</h1>
+          <h1>Login</h1>
           <p>Thanks for your interest</p>
         </Column>
         <Column>
-        <p>Create Your Account</p>
+        <p>Log to Your Account</p>
         <Formik
         onSubmit={handleSubmit}
         // validationSchema={validationSchema}
         initialValues={initialState}
         >
           <Form className="form">
+
+          {/* <label>Name</label>
+            <Field
+            type="text"
+            id="name"
+            name="name"
+            className="input"/>
+            <ErrorMessage name="name" component="div" className="error"/> */}
+
+            {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
             <label>Username</label>
             <Field
             type="text"
@@ -83,13 +86,13 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="username" component="div" className="error"/>
 
-            <label>Phone</label>
+            {/* <label>Phone</label>
             <Field
             type="tel"
             id="contact_number"
             name="contact_number"
             className="input"/>
-            <ErrorMessage name="contact_number" component="div" className="error"/>
+            <ErrorMessage name="contact_number" component="div" className="error"/> */}
 
             {/* <label>E-mail</label>
             <Field
@@ -106,16 +109,20 @@ export default function FormBusiness() {
             name="password"
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
-
-            <label>Repeat password</label>
+            
+            {/* <label>Account type: </label>
+            <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
+            
+            {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
+            {/* <label>Repeat password</label>
             <Field
             type="password"
             id="repeat_password"
             name="repeat_password"
             className="input"/>
-            <ErrorMessage name="repeat_password" component="div" className="error"/>
-
-            <button type="submit">Continue</button>
+            <ErrorMessage name="repeat_password" component="div" className="error"/> */}
+            <button type="submit">LOGIN</button>
+            
 
           </Form>
         </Formik>

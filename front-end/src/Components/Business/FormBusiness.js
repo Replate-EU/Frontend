@@ -26,11 +26,12 @@ export default function FormBusiness() {
     //   });
     
       const history = useHistory();
-      const goToSignUp = () => { 
-        history.push("/business/signup");
+      const goToLogin = () => { 
+        history.push("/login");
       }
 
       const initialState = {
+        name: '',
         username: '',
         contact_number: '',
         // email: '',
@@ -50,10 +51,10 @@ export default function FormBusiness() {
         console.log(allValues);
 
         axios
-        .post('http://localhost:7000/api/auth/register', allValues)
+        .post('https://replate-eu.herokuapp.com/api/auth/register', allValues)
         .then(res => {
           console.log(res);
-          goToSignUp();
+          goToLogin();
         })
         .catch(err => {
           console.log(err)
@@ -76,6 +77,15 @@ export default function FormBusiness() {
         initialValues={initialState}
         >
           <Form className="form">
+
+          <label>Name</label>
+            <Field
+            type="text"
+            id="name"
+            name="name"
+            className="input"/>
+            <ErrorMessage name="name" component="div" className="error"/>
+
             <label>Company Name</label>
             <Field
             type="text"
