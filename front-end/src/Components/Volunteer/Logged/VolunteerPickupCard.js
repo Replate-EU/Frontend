@@ -9,9 +9,12 @@ margin: 10px;
 `
 
 export default function VolunteerPickupCard(props) {
+    console.log(props)
 
     function addToList() {
-        
+        //remove from available pickups
+        // props.claimed_by = something
+        //setState()
     }
     // console.log(props.data)
     return(

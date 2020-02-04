@@ -3,7 +3,7 @@ import { Switch, Route, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import axiosWithAuth from '../auth/axiosWithAuth';
 
 const Container = styled.div`
 display: flex;
@@ -37,11 +37,12 @@ export default function Login() {
           }
           // console.log(values.user_type);
           
-          axios
+          axiosWithAuth()
           .post("https://replate-eu.herokuapp.com/api/auth/login", values)
           .then(res => {
               console.log(res.data.token) 
               //should work, we'll see when api is posted
+
               // history.push(`/${res.data.user_type}/dashboard`);
           })
           .catch(err => {
