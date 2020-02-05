@@ -51,7 +51,7 @@ export default function FormBusiness() {
         console.log(allValues);
 
         axios
-        .post('https://replate-eu.herokuapp.com/api/auth/register', allValues)
+        .post('/api/auth/register', allValues)
         .then(res => {
           console.log(res);
           goToLogin();

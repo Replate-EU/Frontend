@@ -36,7 +36,7 @@ export default function Login() {
     // console.log(values.user_type);
 
     axios
-      .post("https://replate-eu.herokuapp.com/api/auth/login", values)
+      .post("/api/auth/login", values)
       .then(res => {
         console.log(res);
         // res.body.token;
