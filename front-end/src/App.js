@@ -74,6 +74,7 @@ function App({ appState, user, checkToken }) {
           <option value="volunteer">Volunteer</option>
         </select>
         </div>
+        <button className='colored-btn'>Click Me</button>
         <Switch>
           <Route exact path="/">
             <SignUp />
