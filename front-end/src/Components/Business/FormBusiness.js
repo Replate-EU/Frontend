@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import axiosWithAuth from '../../auth/axiosWithAuth';
 
 const Container = styled.div`
 display: flex;
@@ -17,13 +18,14 @@ width: 49%;
 
 export default function FormBusiness() {
 
-    // const validationSchema = Yup.object().shape({
-    //     company_name: Yup.string().required('please enter your company name'),
-    //     phone: Yup.string().required('please enter your phone number'),
-    //     email: Yup.string().email('put a valid email pls').required('please enter your email'),
-    //     password: Yup.string().required('please enter a password'),
-    //     repeat_password: Yup.string().required( 'please enter the same password')
-    //   });
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required('please enter your company name'),
+        username: Yup.string().required('please enter your company name'),
+        phone: Yup.string().required('please enter your phone number'),
+        email: Yup.string().email('put a valid email pls').required('please enter your email'),
+        password: Yup.string().required('please enter a password'),
+        repeat_password: Yup.string().required('please enter the same password')
+      });
     
       const history = useHistory();
       const goToLogin = () => { 
@@ -50,7 +52,7 @@ export default function FormBusiness() {
         delete allValues.repeat_password;
         console.log(allValues);
 
-        axios
+        axiosWithAuth()
         .post('/api/auth/register', allValues)
         .then(res => {
           console.log(res);

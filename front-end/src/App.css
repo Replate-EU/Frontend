@@ -4,6 +4,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+
 }
 
 .Boxes {
@@ -59,4 +60,12 @@
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.active {
+  color: red;
+}
+
+a {
+  text-decoration: none;
 }

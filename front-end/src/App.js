@@ -14,12 +14,12 @@ import styled from "styled-components";
 import FormBusiness from "./Components/Business/FormBusiness";
 import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
-import BusinessPickups from "./Components/Business/BusinessPickups";
-import VolunteerPickups from "./Components/Volunteer/VolunteerPickups";
 import Modal from "./Components/Modal/Modal";
 import SignUp from "./Components/SignUp";
 import { Container, Borders } from "./Components/styled";
-
+import BusinessDashboard from './Components/Business/Logged/BusinessDashboard';
+import VolunteerDashboard from './Components/Volunteer/Logged/VolunteerDashboard';
+import VolunteerPickups from './Components/Volunteer/Logged/VolunteerPickups';
 
 
 function App({ appState, user, checkToken }) {
@@ -31,28 +31,38 @@ function App({ appState, user, checkToken }) {
   return (
     <div className="App">
       <Modal />
-      <Borders></Borders>
+      <Borders>
+        <nav>
+          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
+          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
+          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
+          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
+        </nav>
+    </Borders>
       <Container>
         <Switch>
           <Route exact path="/">
             <SignUp/>
           </Route>
-          <Route exact path="/business">
-            <FormBusiness />
-          </Route>
-          <Route exact path="/volunteer">
-            <FormVolunteer />
-          </Route>
-
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/business/pickups">
-            <BusinessPickups />
-          </Route>
-          <Route exact path="/volunteer/pickups">
-            <VolunteerPickups />
-          </Route>
+      <Route exact path="/business">
+        <FormBusiness />
+      </Route>
+      <Route exact path="/volunteer">
+        <FormVolunteer />
+      </Route>
+      
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/business/dashboard">
+        <BusinessDashboard />
+      </Route>
+      <Route exact path="/volunteer/dashboard">
+        <VolunteerDashboard />
+      </Route>
+      <Route exact path="/volunteer/pickups">
+        <VolunteerPickups />
+      </Route>
         </Switch>
       </Container>
       <Borders></Borders>
