@@ -35,6 +35,10 @@ export function tokenReducer(token = initialToken, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
       return action.payload.token;
+    case types.TOKEN_CHECK_FAILURE:
+      return "";
+    case types.TOKEN_CHECK_SUCCESS:
+      return token;
     default:
       return token;
   }
