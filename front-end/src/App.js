@@ -14,7 +14,7 @@ import styled from "styled-components";
 import FormBusiness from "./Components/Business/FormBusiness";
 import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
-import Modal from "./Components/Modal/Modal";
+// import Modal from "./Components/Modal/Modal";
 import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
 import { Container, Borders } from "./Components/styled";
@@ -30,13 +30,12 @@ function App({ appState, user, checkToken }) {
   }, []);
   return (
     <div className="App">
-      <Modal />
       <Borders>
-        <nav>
+        <Navbar />
+        {/* <nav>
           <NavLink exact to="/login" activeClassName="active" replace>
             LOGIN
           </NavLink>{" "}
-          {/* if logged in, then display: none */}
           <NavLink
             exact
             to="/volunteer/pickups"
@@ -45,7 +44,6 @@ function App({ appState, user, checkToken }) {
           >
             PICKUPS
           </NavLink>{" "}
-          {/* if not logged in, then display: none */}
           <NavLink
             exact
             to="/volunteer/dashboard"
@@ -54,7 +52,6 @@ function App({ appState, user, checkToken }) {
           >
             DASHBOARD
           </NavLink>{" "}
-          {/*display only when volunteer logged in*/}
           <NavLink
             exact
             to="/business/dashboard"
@@ -63,8 +60,7 @@ function App({ appState, user, checkToken }) {
           >
             DASHBOARD
           </NavLink>{" "}
-          {/*display only when business logged in*/}
-        </nav>
+        </nav> */}
       </Borders>
       <Container>
         <Switch>

@@ -10,7 +10,17 @@ export default function Navbar() {
         <NavLink exact to="/">
           Home
         </NavLink>
-        {localStorage.getItem("token") ? <Modal /> : null}
+        {localStorage.getItem("token") ? (
+          <>
+            <NavLink to="/login">Login</NavLink>
+            {localStorage.getItem("account_type") ? (
+              <NavLink to="/volunteer/dashboard">Dashboard</NavLink>
+            ) : (
+              <NavLink to="/business/dashboard">Dashboard</NavLink>
+            )}
+            <Modal />
+          </>
+        ) : null}
       </nav>
     </div>
   );

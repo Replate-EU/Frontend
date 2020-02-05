@@ -67,7 +67,14 @@
   align-items: center;
   background-color: grey;
   width: 100%;
-  margin: 0 100px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
 }
 
 .active {
