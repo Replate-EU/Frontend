@@ -67,7 +67,7 @@ function App({ appState, user, checkToken }) {
         </nav>
       </Borders>
       <Container>
-        <input className="general-input" type="text" />
+        <input className="general-input" type="password" />
         <div>
         <select className='custom-select'>
           <option value="business">Business</option>
