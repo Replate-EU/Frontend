@@ -6,7 +6,7 @@ import axiosWithAuth from '../../../auth/axiosWithAuth';
 const Div = styled.div`
 display: flex;
 flex-flow: row wrap;
-justify-content: space-between;
+justify-content: space-evenly;
 `
 
 export default function VolunteerDashboard() {
@@ -28,7 +28,7 @@ export default function VolunteerDashboard() {
     }, [])
 
     return (
-        <div>
+        
            <Div>
                 {pickups.map(pickup => {
                     return(
@@ -36,6 +36,6 @@ export default function VolunteerDashboard() {
                     )
                 })}
             </Div> 
-        </div>
+        
     )
 }
