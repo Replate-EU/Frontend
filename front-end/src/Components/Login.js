@@ -16,6 +16,8 @@ const Column = styled.div`
 `;
 
 export default function Login() {
+
+
   const history = useHistory();
 
   const initialState = {
@@ -26,15 +28,11 @@ export default function Login() {
     // user_type: 'volunteer',
   };
 
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("please enter your name"),
-    phone: Yup.string().required("please enter your phone number"),
-    password: Yup.string().required("please enter a password"),
-    repeat_password: Yup.string().required("please enter the same password")
-  });
-
   function handleSubmit(values, actions) {
     // console.log(values);
+    if (!type) {
+      values.user_type = "business";
+    }
     // console.log(values.user_type);
 
     axiosWithAuth()
@@ -44,7 +42,7 @@ export default function Login() {
         // res.body.token;
         localStorage.setItem("token", res.data.token);
         //should work, we'll see when api is posted
-        history.push(`/${res.data.user_type}/dashboard`);
+        history.push(`/${res.data.user_type}/pickups`);
       })
       .catch(err => {
         console.log(err);
@@ -54,6 +52,31 @@ export default function Login() {
   // function handleType() {
   //   setType(!type);
   // }
+
+  function handleSubmit(values, actions) {
+    console.log(values);
+    if (!type) {
+      values.user_type = "business";
+    }
+    // console.log(values.user_type);
+
+    axiosWithAuth()
+      .post("/api/auth/login", values)
+      .then(res => {
+        console.log(res);
+        // res.body.token;
+        localStorage.setItem("token", res.data.token);
+        //should work, we'll see when api is posted
+        history.push(`/${res.data.user_type}/pickups`);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  function handleType() {
+    setType(!type);
+  }
 
   return (
     <Container>

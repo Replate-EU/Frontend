@@ -8,7 +8,7 @@ import { checkToken } from "./state/actionCreators";
 
 //styles
 import "./CSS/App.css";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 //Child components
 import FormBusiness from "./Components/Business/FormBusiness";
@@ -30,51 +30,21 @@ function App({ appState, user, checkToken }) {
   }, []);
   return (
     <div className="App">
-      <Borders>
-        <nav>
+      
+     
+        <nav className="NavBar">
           <Modal />
-          <NavLink exact to="/login" activeClassName="active" replace>
-            LOGIN
-          </NavLink>{" "}
-          {/* if logged in, then display: none */}
-          <NavLink
-            exact
-            to="/volunteer/pickups"
-            activeClassName="active"
-            replace
-          >
-            PICKUPS
-          </NavLink>{" "}
-          {/* if not logged in, then display: none */}
-          <NavLink
-            exact
-            to="/volunteer/dashboard"
-            activeClassName="active"
-            replace
-          >
-            DASHBOARD
-          </NavLink>{" "}
-          {/*display only when volunteer logged in*/}
-          <NavLink
-            exact
-            to="/business/dashboard"
-            activeClassName="active"
-            replace
-          >
-            DASHBOARD
-          </NavLink>{" "}
-          {/*display only when business logged in*/}
+          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
+          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
+          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
+          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
         </nav>
-      </Borders>
+    
       <Container>
-        <input className="general-input" type="password" />
-        <div>
         <select className='custom-select'>
           <option value="business">Business</option>
           <option value="volunteer">Volunteer</option>
         </select>
-        </div>
-        <button className='colored-btn'>Click Me</button>
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -100,7 +70,7 @@ function App({ appState, user, checkToken }) {
           </Route>
         </Switch>
       </Container>
-      <Borders></Borders>
+      
     </div>
   );
 }
