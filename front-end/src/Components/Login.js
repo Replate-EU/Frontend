@@ -64,18 +64,6 @@ export default function Login() {
     }
     // console.log(values.user_type);
 
-    axios
-      .post("/api/auth/login", values)
-      .then(res => {
-        console.log(res);
-        // res.body.token;
-        localStorage.setItem("token", res.data.token);
-        //should work, we'll see when api is posted
-        history.push(`/${res.data.user_type}/pickups`);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   }
 
   function handleType() {

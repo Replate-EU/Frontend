@@ -17,7 +17,7 @@
 }
 
 .input {
-  border: 3px solid black;
+  border: 3px solid rgb(66, 50, 50);
   border-radius: 2px;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .form button {
-  background: white;
+  Color: white;
   border: 3px solid black;
   box-shadow: 2px 2px black;
   margin-top: 16px;
