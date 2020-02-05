@@ -3,7 +3,7 @@ import { Switch, Route, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import axiosWithAuth from '../../auth/axiosWithAuth';
 
 const Container = styled.div`
 display: flex;
@@ -49,8 +49,8 @@ export default function FormBusiness() {
         delete allValues.repeat_password;
         // console.log(allValues);
 
-        axios
-        .post('https://replate-eu.herokuapp.com/api/auth/register', allValues)
+        axiosWithAuth()
+        .post('/api/auth/register', allValues)
         .then(res => {
           console.log(res);
           goToLogin();

@@ -3,7 +3,7 @@ import { Switch, Route, Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import axiosWithAuth from "../auth/axiosWithAuth";
 
 const Container = styled.div`
   display: flex;
@@ -29,14 +29,39 @@ export default function Login() {
   };
 
   function handleSubmit(values, actions) {
+    // console.log(values);
+    if (!type) {
+      values.user_type = "business";
+    }
+    // console.log(values.user_type);
+
+    axiosWithAuth()
+      .post("/api/auth/login", values)
+      .then(res => {
+        // console.log(res.data.token)
+        // res.body.token;
+        localStorage.setItem("token", res.data.token);
+        //should work, we'll see when api is posted
+        history.push(`/${res.data.user_type}/pickups`);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  // function handleType() {
+  //   setType(!type);
+  // }
+
+  function handleSubmit(values, actions) {
     console.log(values);
     if (!type) {
       values.user_type = "business";
     }
     // console.log(values.user_type);
 
-    axios
-      .post("https://replate-eu.herokuapp.com/api/auth/login", values)
+    axiosWithAuth()
+      .post("/api/auth/login", values)
       .then(res => {
         console.log(res);
         // res.body.token;
@@ -67,14 +92,6 @@ export default function Login() {
           initialValues={initialState}
         >
           <Form className="form">
-            {/* <label>Name</label>
-            <Field
-            type="text"
-            id="name"
-            name="name"
-            className="input"/>
-            <ErrorMessage name="name" component="div" className="error"/> */}
-
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
             <label>Username</label>
             <Field
@@ -84,14 +101,6 @@ export default function Login() {
               className="input"
             />
             <ErrorMessage name="username" component="div" className="error" />
-
-            {/* <label>Phone</label>
-            <Field
-            type="tel"
-            id="contact_number"
-            name="contact_number"
-            className="input"/>
-            <ErrorMessage name="contact_number" component="div" className="error"/> */}
 
             {/* <label>E-mail</label>
             <Field
@@ -114,13 +123,7 @@ export default function Login() {
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
 
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
-            {/* <label>Repeat password</label>
-            <Field
-            type="password"
-            id="repeat_password"
-            name="repeat_password"
-            className="input"/>
-            <ErrorMessage name="repeat_password" component="div" className="error"/> */}
+
             <button type="submit">LOGIN</button>
           </Form>
         </Formik>
