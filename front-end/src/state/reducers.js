@@ -8,6 +8,10 @@ export function appStateReducer(appState = initialAppState, action) {
       return true;
     case types.LOG_OUT:
       return false;
+    case types.TOKEN_CHECK_SUCCESS:
+      return true;
+    case types.TOKEN_CHECK_FAILURE:
+      return false;
     default:
       return appState;
   }
@@ -24,6 +28,10 @@ export function userReducer(user = initialUser, action) {
       return action.payload.user;
     case types.LOG_OUT:
       return initialUser;
+    case types.TOKEN_CHECK_SUCCESS:
+      return action.payload.user;
+    case types.TOKEN_CHECK_FAILURE:
+      return initialUser;
     default:
       return user;
   }
@@ -35,6 +43,10 @@ export function tokenReducer(token = initialToken, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
       return action.payload.token;
+    case types.TOKEN_CHECK_FAILURE:
+      return null;
+    case types.TOKEN_CHECK_SUCCESS:
+      return token;
     default:
       return token;
   }
@@ -60,7 +72,7 @@ export function availablePickupsReducer(
 
 //reducer 5, accepted pickups
 const initialAcceptedPickups = [];
-export function aceptedPickupsReducer(
+export function acceptedPickupsReducer(
   acceptedPickups = initialAcceptedPickups,
   action
 ) {
@@ -103,6 +115,8 @@ const initialUserDetails = null;
 export function userDetailsReducer(userDetails = initialUserDetails, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
+      return action.payload.account_details;
+    case types.TOKEN_CHECK_SUCCESS:
       return action.payload.account_details;
     case types.SUBMITTED_USER_DETAILS:
       return action.payload;

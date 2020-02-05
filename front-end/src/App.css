@@ -10,7 +10,6 @@
 .Boxes {
   display: flex;
   justify-content: center;
-  
 }
 
 .hover:hover {
@@ -44,7 +43,23 @@
   border: 3px solid black;
   box-shadow: 2px 2px black;
   margin-top: 16px;
-  
+}
+
+.modal-container {
+  position: fixed;
+  margin: auto auto;
+  width: 500px;
+  height: 500px;
+  background: snow;
+  border: 1px solid #ccc;
+  box-shadow: -2rem 2rem 2rem rgb(167, 160, 160);
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .active {
