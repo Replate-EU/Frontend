@@ -18,13 +18,14 @@ width: 49%;
 
 export default function FormBusiness() {
 
-    // const validationSchema = Yup.object().shape({
-    //     company_name: Yup.string().required('please enter your company name'),
-    //     phone: Yup.string().required('please enter your phone number'),
-    //     email: Yup.string().email('put a valid email pls').required('please enter your email'),
-    //     password: Yup.string().required('please enter a password'),
-    //     repeat_password: Yup.string().required( 'please enter the same password')
-    //   });
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required('please enter your company name'),
+        username: Yup.string().required('please enter your company name'),
+        phone: Yup.string().required('please enter your phone number'),
+        email: Yup.string().email('put a valid email pls').required('please enter your email'),
+        password: Yup.string().required('please enter a password'),
+        repeat_password: Yup.string().required('please enter the same password')
+      });
     
       const history = useHistory();
       const goToLogin = () => { 
@@ -52,7 +53,7 @@ export default function FormBusiness() {
         console.log(allValues);
 
         axiosWithAuth()
-        .post('https://replate-eu.herokuapp.com/api/auth/register', allValues)
+        .post('/api/auth/register', allValues)
         .then(res => {
           console.log(res);
           goToLogin();

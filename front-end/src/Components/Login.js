@@ -38,12 +38,13 @@ export default function Login() {
           // console.log(values.user_type);
           
           axiosWithAuth()
-          .post("https://replate-eu.herokuapp.com/api/auth/login", values)
+          .post("/api/auth/login", values)
           .then(res => {
-              console.log(res.data.token) 
+              // console.log(res.data.token) 
+              // res.body.token;
+              localStorage.setItem("token", res.data.token);
               //should work, we'll see when api is posted
-
-              // history.push(`/${res.data.user_type}/dashboard`);
+              history.push(`/${res.data.user_type}/pickups`);
           })
           .catch(err => {
               console.log(err)
