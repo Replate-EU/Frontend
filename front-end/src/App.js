@@ -39,7 +39,6 @@ function App({ appState, user, checkToken }) {
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
         </nav>
-    
       <Container>
         <select className='custom-select'>
           <option value="business">Business</option>

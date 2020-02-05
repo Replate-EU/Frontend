@@ -70,3 +70,19 @@ button.colored-btn:hover {
 button.colored-btn:focus {
   outline: none;
 }
+.modal-container {
+  position: fixed;
+  margin: auto auto;
+  width: 500px;
+  height: 500px;
+  background: snow;
+  border: 1px solid #ccc;
+  box-shadow: -2rem 2rem 2rem #a7a0a0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
