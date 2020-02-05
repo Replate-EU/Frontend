@@ -16,7 +16,7 @@ const Column = styled.div`
 `;
 
 export default function Login() {
-
+  const [type, setType] = useState(true);
 
   const history = useHistory();
 
@@ -27,6 +27,13 @@ export default function Login() {
     password: ""
     // user_type: 'volunteer',
   };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('please enter your name'),
+    phone: Yup.string().required('please enter your phone number'),
+    password: Yup.string().required('please enter a password'),
+    repeat_password: Yup.string().required( 'please enter the same password')
+  });
 
   function handleSubmit(values, actions) {
     // console.log(values);
