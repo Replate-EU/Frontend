@@ -1,13 +1,13 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-//Redux aactions
+//Redux actions
 import { checkToken } from "./state/actionCreators";
 
 //styles
-import "./App.css";
+import "./CSS/App.css";
 import styled from "styled-components";
 
 //Child components
@@ -30,9 +30,10 @@ function App({ appState, user, checkToken }) {
   }, []);
   return (
     <div className="App">
-      <Modal />
+      
       <Borders>
         <nav>
+          <Modal />
           <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
           <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
