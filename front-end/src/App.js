@@ -8,6 +8,7 @@ import Login from "./Components/Login";
 import BusinessPickups from "./Components/Business/BusinessPickups";
 import VolunteerPickups from "./Components/Volunteer/VolunteerPickups";
 import Modal from "./Components/Modal/Modal";
+import Navbar from "./Components/Navbar";
 
 const Box = styled.div`
   display: flex;
@@ -43,7 +44,8 @@ const Button = styled.button`
 function App() {
   return (
     <div className="App">
-      <Modal />
+      <Navbar />
+      {/* <Modal /> */}
       <Borders></Borders>
       <Container>
         <Switch>
