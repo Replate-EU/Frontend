@@ -21,7 +21,7 @@ export const Container = styled.div`
   justify-content: center;
   border: 3px solid black;
   height: 100vh;
-  width: 50%;
+  
   margin: -3px 0;
 `;
 
