@@ -63,6 +63,11 @@ function App({ appState, user, checkToken }) {
         </nav> */}
       </Borders>
       <Container>
+        <input className="general-input" type="text" />
+        <select>
+          <option value="business">Business</option>
+          <option value="volunteer">Volunteer</option>
+        </select>
         <Switch>
           <Route exact path="/">
             <SignUp />
