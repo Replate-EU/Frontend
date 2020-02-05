@@ -12,7 +12,7 @@ color: rgba(31, 32, 65, 0.7);
 width: 30%;
 margin: 10px;
 `
-const Button = styled.button`
+const Button = styled.a`
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     border: 1px solid rgba(31, 32, 65, 0.5);
     border-radius: 22px;
