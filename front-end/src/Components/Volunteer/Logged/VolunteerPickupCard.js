@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Pickup, Button2 } from '../../styled';
 
-const Pickup = styled.a`
-background: red;
-color: black;
-width: 29%;
-margin: 10px;
-`
+
 
 export default function VolunteerPickupCard(props) {
     console.log(props)
@@ -18,12 +13,13 @@ export default function VolunteerPickupCard(props) {
     }
     // console.log(props.data)
     return(
-        <Pickup href="" onClick={addToList}>
-            <h4>Address:</h4>
-            <p>type: {props.pickup.food_type}</p>
-            <p>quantity: {props.pickup.quantity}</p>
-            <p>Preferred pickup time: {props.pickup.pickup_time}</p>
-             <p>Business: {props.pickup.business_id}</p> {/* business_id.name */}
+        <Pickup>
+            <h3>Address:</h3>
+            <h3>Type: {props.pickup.food_type}</h3>
+            <h3>Quantity: {props.pickup.quantity} g</h3>
+            <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
+             <h3>Brand: {props.pickup.business_id}</h3> {/* business_id.name */}
+             <Button2 onClick={addToList}>ACCEPT</Button2>
         </Pickup>
     )
 }   

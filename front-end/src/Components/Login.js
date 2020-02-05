@@ -31,10 +31,8 @@ export default function Login() {
       }
 
       const validationSchema = Yup.object().shape({
-        name: Yup.string().required('please enter your name'),
-        phone: Yup.string().required('please enter your phone number'),
+        username: Yup.string().required('please enter your username'),
         password: Yup.string().required('please enter a password'),
-        repeat_password: Yup.string().required( 'please enter the same password')
       });
       
     
@@ -45,7 +43,7 @@ export default function Login() {
           axiosWithAuth()
           .post("/api/auth/login", values)
           .then(res => {
-              // console.log(res.data.token) 
+              console.log(res.data.token) 
               // res.body.token;
               localStorage.setItem("token", res.data.token);
               //should work, we'll see when api is posted

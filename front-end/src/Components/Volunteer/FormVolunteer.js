@@ -73,7 +73,7 @@ export default function FormBusiness() {
         <p>Create Your Account</p>
         <Formik
         onSubmit={handleSubmit}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         initialValues={initialState}
         >
           <Form className="form">
