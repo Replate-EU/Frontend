@@ -18,7 +18,7 @@ import {
 // import * as serviceWorker from './serviceWorker';
 /* 
 state = {
-  appState: "loggedIn" || "loggedOut",
+  appState: true || false,// standing for either "loggedIn" or "loggedOut",
   user: { user_type: "guest" || "volunteer" || "business", user_id: 0 },//guest and 0 by default, either until login or tokenCheck are passed
   token: "", //on initial render check local storage,  set to empty string if couldn't find one
   availablePickups: [], //pickups array, pickups available for volunteers to accept, empty if user type is not volunteer
