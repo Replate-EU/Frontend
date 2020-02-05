@@ -23,6 +23,7 @@ export default function VolunteerDashboard() {
             .catch(err => {
                 console.log(err)
             })
+            // .post('/api/pickups/me')
         
     }, [])
 
