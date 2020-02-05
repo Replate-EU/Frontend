@@ -1,0 +1,15 @@
+input.general-input {
+  border-radius: 3px;
+  width: 60%;
+  margin: 0 auto;
+  height: 30px;
+  border: 1px solid gray;
+  font-size: 1.6em;
+  position: relative;
+}
+input[type="text"]:focus {
+  border: 1px solid #bc9cff;
+}
+input[type="text"]:hover {
+  border: 1px solid #bc9cff;
+}

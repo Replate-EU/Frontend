@@ -1,20 +1,20 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-//Redux aactions
+//Redux actions
 import { checkToken } from "./state/actionCreators";
 
 //styles
-import "./App.css";
+import "./CSS/App.css";
 import styled from "styled-components";
 
 //Child components
 import FormBusiness from "./Components/Business/FormBusiness";
 import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
-// import Modal from "./Components/Modal/Modal";
+import Modal from "./Components/Modal/Modal";
 import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
 import { Container, Borders } from "./Components/styled";
@@ -31,11 +31,12 @@ function App({ appState, user, checkToken }) {
   return (
     <div className="App">
       <Borders>
-        <Navbar />
-        {/* <nav>
+        <nav>
+          <Modal />
           <NavLink exact to="/login" activeClassName="active" replace>
             LOGIN
           </NavLink>{" "}
+          {/* if logged in, then display: none */}
           <NavLink
             exact
             to="/volunteer/pickups"
@@ -44,6 +45,7 @@ function App({ appState, user, checkToken }) {
           >
             PICKUPS
           </NavLink>{" "}
+          {/* if not logged in, then display: none */}
           <NavLink
             exact
             to="/volunteer/dashboard"
@@ -52,6 +54,7 @@ function App({ appState, user, checkToken }) {
           >
             DASHBOARD
           </NavLink>{" "}
+          {/*display only when volunteer logged in*/}
           <NavLink
             exact
             to="/business/dashboard"
@@ -60,14 +63,17 @@ function App({ appState, user, checkToken }) {
           >
             DASHBOARD
           </NavLink>{" "}
-        </nav> */}
+          {/*display only when business logged in*/}
+        </nav>
       </Borders>
       <Container>
         <input className="general-input" type="text" />
-        <select>
+        <div>
+        <select className='custom-select'>
           <option value="business">Business</option>
           <option value="volunteer">Volunteer</option>
         </select>
+        </div>
         <Switch>
           <Route exact path="/">
             <SignUp />

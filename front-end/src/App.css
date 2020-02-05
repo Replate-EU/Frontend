@@ -100,16 +100,3 @@ a.active {
   /* visibility: hidden; */
   display: none;
 }
-
-input.general-input {
-  border-radius: 3px;
-  width: 60%;
-  margin: 0 auto;
-  height: 30px;
-  border: 1px solid gray;
-  font-size: 1.6em;
-}
-
-input[type="text"]:focus {
-  border: 3px solid #bc9cff;
-}
