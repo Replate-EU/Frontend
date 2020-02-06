@@ -15,6 +15,7 @@ export function AccountDetails({
   deleteUserDetails,
   submitUserDetails,
   editUserDetails,
+  modalNode,
   showModal
 }) {
   const [details, setDetails] = useState(user);
@@ -22,18 +23,19 @@ export function AccountDetails({
   const [update, setUpdate] = useState({});
   const [edit, setEdit] = useState(false);
 
-  const modalNode = useRef();
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClick)
+    console.log(modalNode)
+    document.addEventListener("mousedown", handleClick);
     return () => {
-      document.removeEventListener('mousedown', handleClick)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
 
-  function handleClick(e){
-    if(modalNode.current.contains(e.target)){
-      return
+  function handleClick(e) {
+    if (modalNode.current.contains(e.target)) {
+      return;
+    
     }
     showModal();
   }
@@ -63,7 +65,7 @@ export function AccountDetails({
   }
 
   return (
-    <div className='modalCard' ref={modalNode}>
+    <div className="modalCard">
       {edit ? (
         <Form
           update={update}
@@ -78,7 +80,8 @@ export function AccountDetails({
           <h3>Contact: {details.contact_number}</h3>
         </div>
       )}
-      <button className='colored-btn'
+      <button
+        className="colored-btn"
         onClick={e => {
           showEdit();
         }}

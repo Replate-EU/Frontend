@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import AccountDetails from "./Account-Details";
 
 export default function Modal() {
@@ -9,10 +9,27 @@ export default function Modal() {
   }
 
   const modalNode = useRef();
+  // console.log(modalNode);
+
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClick);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClick);
+  //   };
+  // }, []);
+
+  // function handleClick(e) {
+  //   console.log(e);
+  //   if (modalNode.current.contains(e.target)) {
+  //     return;
+  //   }
+  //   showModal();
+  // }
 
   return (
     <div className>
-      <button className='colored-btn'
+      <button
+        className="colored-btn"
         onClick={e => {
           showModal();
         }}
@@ -20,8 +37,8 @@ export default function Modal() {
         My Account
       </button>
       {modal ? (
-        <div className="modal-container" >
-          <AccountDetails showModal={showModal}/>
+        <div className="modal-container" ref={modalNode}>
+          <AccountDetails showModal={showModal} modalNode={modalNode} showModal={showModal}/>
         </div>
       ) : null}
     </div>
