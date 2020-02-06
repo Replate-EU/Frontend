@@ -102,7 +102,7 @@ export default function BusinessDashboard() {
             name="quantity"
             className="input"/>
             <ErrorMessage name="quantity" component="div" className="error"/>
-            <button type="submit">create new pickup</button>
+            <button classname="submit" type="submit">create new pickup</button>
           </Form>
         </Formik>
    
@@ -114,5 +114,8 @@ export default function BusinessDashboard() {
          })}
      </Div>  */}
  </div>
+ 
  )
-        }
+
+        
+}

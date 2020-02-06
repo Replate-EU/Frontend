@@ -1,0 +1,17 @@
+.hover:hover {
+    background:white;
+    border: 1px solid #d0d0d0;
+}
+
+.submit {
+    color:white;
+
+}
+.submit:hover {
+    background:#008080;
+    border: 1px solid #d0d0d0
+}
+.modal:hover {
+    background:white;
+    border: 1px solid #d0d0d0
+}

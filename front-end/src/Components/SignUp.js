@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, } from "./styled";
-import  Button from "./Less/B"
+import { Box, Button } from "./styled";
 
 export default function SignUp() {
   return (
