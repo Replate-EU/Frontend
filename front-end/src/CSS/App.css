@@ -1,0 +1,88 @@
+.NavBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+.NavBar a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.5);
+  padding: 5px;
+}
+.NavBar button {
+  background: white;
+  border: 2px solid rgba(31, 32, 65, 0.5);
+  border-radius: 22px;
+  padding: 10px;
+  font-weight: bold;
+  color: rgba(31, 32, 65, 0.5);
+  cursor: pointer;
+}
+.NavBar .active {
+  color: rgba(80, 83, 169, 0.5);
+}
+input.general-input {
+  border-radius: 3px;
+  width: 50%;
+  margin: 0 auto;
+  height: 35px;
+  border: 1px solid #1f2041;
+  font-size: 1.2em;
+  position: relative;
+}
+input:focus {
+  outline: none;
+  border: 1px solid #bc9cff;
+  -webkit-box-shadow: 0px 0px 5px #bc9cff;
+  box-shadow: 0px 0px 5px #bc9cff;
+}
+input:hover {
+  border: 3px solid #bc9cff;
+}
+input:active {
+  border: 3px solid #bc9cff;
+}
+button.colored-btn {
+  background-image: linear-gradient(to right, #bc9cff, #764ba2, #6b8dd6, #8e37d7);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 45px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+button.colored-btn:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+button.colored-btn:focus {
+  outline: none;
+}
+.modal-container {
+  position: fixed;
+  margin: auto auto;
+  width: 500px;
+  height: 500px;
+  background: snow;
+  border: 1px solid #ccc;
+  box-shadow: -2rem 2rem 2rem #a7a0a0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

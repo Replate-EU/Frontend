@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Button } from "./styled";
+import { Box, Button1 } from "./styled";
 
 export default function SignUp() {
   return (
@@ -9,14 +9,14 @@ export default function SignUp() {
       <div className="Boxes">
         <Box>
           <Link to="/business">
-            <Button className="hover"></Button>
+            <Button1 className="hover"></Button1>
           </Link>
           <h3>I'm a business</h3>
           <p>I want to donate food</p>
         </Box>
         <Box>
           <Link to="/volunteer">
-            <Button className="hover"></Button>
+            <Button1 className="hover"></Button1>
           </Link>
 
           <h3>I'm a volunteer</h3>
@@ -24,7 +24,7 @@ export default function SignUp() {
         </Box>
       </div>
       <Link to="/login">
-        <Button className="hover">Go to login page</Button>
+        <Button1 className="hover">Go to login page</Button1>
       </Link>
     </>
   );

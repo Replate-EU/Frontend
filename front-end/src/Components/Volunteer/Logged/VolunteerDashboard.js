@@ -8,10 +8,11 @@ import {
   abandonPickup
 } from "../../../state/actionCreators";
 
+
 const Div = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-evenly;
 `;
 
 export function VolunteerDashboard({
@@ -52,3 +53,4 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, { getAcceptedPickups, abandonPickup })(
   VolunteerDashboard
 );
+

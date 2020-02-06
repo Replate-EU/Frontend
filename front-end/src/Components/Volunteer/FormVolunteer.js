@@ -17,13 +17,14 @@ width: 49%;
 
 export default function FormBusiness() {
 
-    // const validationSchema = Yup.object().shape({
-    //     company_name: Yup.string().required('please enter your company name'),
-    //     phone: Yup.string().required('please enter your phone number'),
-    //     email: Yup.string().email('put a valid email pls').required('please enter your email'),
-    //     password: Yup.string().required('please enter a password'),
-    //     repeat_password: Yup.string().required( 'please enter the same password')
-    //   });
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required('please enter your name'),
+        username: Yup.string().required('please enter your name'),
+        contact_number: Yup.string().required('please enter your phone number'),
+        password: Yup.string().required('please enter a password'),
+        repeat_password: Yup.string().required( 'please enter the same password')
+      });
+
       const history = useHistory();
       const goToLogin = () => { 
         history.push("/login");
@@ -72,7 +73,7 @@ export default function FormBusiness() {
         <p>Create Your Account</p>
         <Formik
         onSubmit={handleSubmit}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         initialValues={initialState}
         >
           <Form className="form">

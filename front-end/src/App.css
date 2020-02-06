@@ -4,7 +4,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-
 }
 
 .Boxes {
@@ -62,10 +61,42 @@
   bottom: 0;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: grey;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+}
+
 .active {
   color: red;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  background-color: greenyellow;
+}
+
+a.active {
+  color: black;
+  /* background-color: greenyellow; */
+  /* visibility: hidden; */
+  display: none;
 }

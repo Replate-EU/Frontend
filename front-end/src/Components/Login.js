@@ -7,6 +7,7 @@ import axiosWithAuth from "../auth/axiosWithAuth";
 import { login } from "../state/actionCreators";
 import { connect } from "react-redux";
 
+
 const Container = styled.div`
   display: flex;
 `;
@@ -24,11 +25,15 @@ export function Login({ login }) {
 
   const initialState = {
     username: "",
-
-    // email: '',
     password: ""
-    // user_type: 'volunteer',
   };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('please enter your name'),
+    phone: Yup.string().required('please enter your phone number'),
+    password: Yup.string().required('please enter a password'),
+    repeat_password: Yup.string().required( 'please enter the same password')
+  });
 
   function handleSubmit(values, actions) {
     // console.log(values);
@@ -66,7 +71,7 @@ export function Login({ login }) {
         <p>Log to Your Account</p>
         <Formik
           onSubmit={handleSubmit}
-          // validationSchema={validationSchema}
+          validationSchema={validationSchema}
           initialValues={initialState}
         >
           <Form className="form">

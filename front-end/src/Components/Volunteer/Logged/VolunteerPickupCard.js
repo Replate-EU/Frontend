@@ -1,36 +1,26 @@
-import React from "react";
-import styled from "styled-components";
 
-const Pickup = styled.div`
-  background: red;
-  color: black;
-  width: 29%;
-  margin: 10px;
-`;
+import React from 'react';
+import { Pickup, Button2 } from '../../styled';
 
-export default function VolunteerPickupCard({
-  pickup,
-  user_id,
-  action,
-  action1,
-  action2
-}) {
-  const newPickupdData = {
-    ...pickup,
-    claimed_by: user_id
-  };
-  console.log(action1);
-  const handleClick = () => {
-    action1(newPickupdData);
-  };
-  return (
-    <Pickup>
-      <h4>Address:</h4>
-      <p>type: {pickup.food_type}</p>
-      <p>quantity: {pickup.quantity}</p>
-      <p>Preferred pickup time: {pickup.pickup_time}</p>
-      <p>Business: {pickup.business_id}</p> {/* business_id.name */}
-      <button onClick={handleClick}>{action}</button>
-    </Pickup>
-  );
-}
+
+
+export default function VolunteerPickupCard(props) {
+    console.log(props)
+
+    function addToList() {
+        //remove from available pickups
+        // props.claimed_by = something
+        //setState()
+    }
+    // console.log(props.data)
+    return(
+        <Pickup>
+            <h3>Address:</h3>
+            <h3>Type: {props.pickup.food_type}</h3>
+            <h3>Quantity: {props.pickup.quantity} g</h3>
+            <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
+             <h3>Brand: {props.pickup.business_id}</h3> {/* business_id.name */}
+             <Button2 onClick={addToList}>ACCEPT</Button2>
+        </Pickup>
+    )
+}   
