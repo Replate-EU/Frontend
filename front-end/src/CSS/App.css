@@ -543,6 +543,10 @@ a:focus {
 .navbar-container nav .active {
   color: rgba(31, 32, 65, 0.5);
 }
+.signup .dives {
+  display: flex;
+  justify-content: space-around;
+}
 .card-container {
   max-width: 380px;
   min-width: 300px;
