@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 // import axios from 'axios';
-import BusinessPickupCard from "../../Volunteer/Logged/VolunteerPickupCard";
+import BusinessPickupCard from "./BusinessPickupCard";
 import styled from "styled-components";
 import { Field, ErrorMessage, Form, Formik } from "formik";
 import axiosWithAuth from "../../../auth/axiosWithAuth";
 import { connect } from "react-redux";
-import { getListedPickups, submitPickup } from "../../../state/actionCreators";
-const Pickup = styled.div`
-  background: red;
-  width: 30%;
-  margin: 10px;
-`;
+import {
+  getListedPickups,
+  submitPickup,
+  deletePickup,
+  editPickup
+} from "../../../state/actionCreators";
+
 const Div = styled.div`
   display: flex;
   flex-flow: row wrap;
@@ -19,7 +20,9 @@ const Div = styled.div`
 export function BusinessDashboard({
   listedPickups,
   getListedPickups,
-  submitPickup
+  submitPickup,
+  deletePickup,
+  editPickup
 }) {
   useEffect(() => {
     getListedPickups();
@@ -67,7 +70,13 @@ export function BusinessDashboard({
 
       <Div>
         {listedPickups.map(pickup => {
-          return <BusinessPickupCard pickup={pickup} />;
+          return (
+            <BusinessPickupCard
+              pickup={pickup}
+              update={editPickup}
+              remove={deletePickup}
+            />
+          );
         })}
       </Div>
     </div>
@@ -80,6 +89,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getListedPickups, submitPickup })(
-  BusinessDashboard
-);
+export default connect(mapStateToProps, {
+  getListedPickups,
+  submitPickup,
+  deletePickup,
+  editPickup
+})(BusinessDashboard);
