@@ -710,3 +710,78 @@ button.colored-btn:focus {
 .modal-container .modalCard .account h3:last-of-type {
   margin: 0 auto;
 }
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: #fff;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px #000000;
+}
+.form div {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.form text {
+  height: 80px;
+  padding: 10px 0;
+  margin-bottom: 40px;
+}
+.form input,
+.form text {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #999;
+}
+.form text {
+  margin-bottom: 20px;
+}
+.form button[type="submit"] {
+  border-bottom: none ;
+  cursor: pointer;
+  background: #1f2041;
+  color: #fff;
+  margin-bottom: 0;
+  text-transform: uppercase ;
+}
+.form form {
+  position: relative;
+}
+.form form label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #999;
+  transition: 5s;
+  pointer-events: none;
+}
+.form input:focus ~ label,
+.form text:focus ~ label .form input:valid ~ label,
+.form text:valid ~ label {
+  top: -12px;
+  left: 0;
+  color: #1f2041;
+  font-size: 12px ;
+  font-weight: bold;
+}
+.form input:focus,
+.form text:focus,
+.form input:valid,
+.form text:valid {
+  border-bottom: 2px solid #1f2041;
+}
+.error {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 8px;
+  line-height: 5px;
+  margin: 2px 0 0;
+}
