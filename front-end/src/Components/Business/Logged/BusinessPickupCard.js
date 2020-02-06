@@ -15,7 +15,7 @@ export default function BusinessPickupCard({pickup, update, delete}) {
             <h3>Quantity: {props.pickup.quantity} g</h3>
             <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
              <h3>Brand: {props.pickup.business_id}</h3> {/* business_id.name */}
-             <Button2 onClick={addToList}>ACCEPT</Button2>
+             <a className="button2" onClick={addToList}>ACCEPT</a>
         </div>
     )
 }
