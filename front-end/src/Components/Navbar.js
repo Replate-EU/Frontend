@@ -7,16 +7,16 @@ export default function Navbar() {
     <div className="navbar-container">
       <h1>Replate</h1>
       <nav>
-        <NavLink exact to="/">
+        <NavLink exact to="/" activeClassName="active" replace>
           Home
         </NavLink>
         {localStorage.getItem("token") ? (
           <>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/login" activeClassName="active" replace>Login</NavLink>
             {localStorage.getItem("account_type") ? (
-              <NavLink to="/volunteer/dashboard">Dashboard</NavLink>
+              <NavLink to="/volunteer/dashboard" activeClassName="active" replace>Dashboard</NavLink>
             ) : (
-              <NavLink to="/business/dashboard">Dashboard</NavLink>
+              <NavLink to="/business/dashboard" activeClassName="active" replace>Dashboard</NavLink>
             )}
             <Modal />
           </>
@@ -25,3 +25,12 @@ export default function Navbar() {
     </div>
   );
 }
+
+
+// <nav className="NavBar">
+//           <Modal />
+//           <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
+//           <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
+//           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
+//           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
+//         </nav>
