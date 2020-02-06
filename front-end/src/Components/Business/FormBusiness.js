@@ -26,7 +26,7 @@ export default function FormBusiness() {
         contact_number: Yup.string().matches(phoneRegExp, 'phone number is not valid').required('please enter a phone number'),
         // email: Yup.string().email('put a valid email pls').required('please enter your email'),
         password: Yup.string().required('please enter a password'),
-        repeat_password: Yup.string().required('please enter the same password')
+        repeat_password: Yup.string().oneOf([Yup.ref('password'), null], 'passwords must match')
       });
     
       const history = useHistory();
