@@ -9,9 +9,6 @@ export const login = (credentials, history) => async dispatch => {
   try {
     const response = await axios().post("/api/auth/login", credentials);
     const { token, user } = response.data;
-    console.log(response.data);
-
-    history.push(`/${user.user_type}/dashboard`);
     localStorage.setItem("token", token);
     dispatch(
       action(types.LOGIN_SUCCESS, {
@@ -20,6 +17,7 @@ export const login = (credentials, history) => async dispatch => {
         account_details: user.account_details
       })
     );
+    history.push(`/${user.user_type}/dashboard`);
   } catch (error) {
     console.debug(error);
   }
@@ -62,29 +60,47 @@ export const getAvailablePickups = () => async dispatch => {
 
 //takes in pickup object without id and with claimed_by set to userId
 export const acceptPickup = pickupData => async dispatch => {
-  const response = await axios().put(
-    `/api/pickups/${pickupData.id}`,
-    pickupData
-  );
-  const updatedPickup = response.data;
-  dispatch(action(types.ACCEPTED_PICKUP, updatedPickup));
+  try {
+    const acceptedPickup = {
+      ...pickupData
+    };
+    delete pickupData.address;
+    delete pickupData.name;
+    delete pickupData.business_id;
+    delete pickupData.id;
+    await axios().put(`/api/pickups/${acceptedPickup.id}`, pickupData);
+    dispatch(action(types.ACCEPTED_PICKUP, acceptedPickup));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const abandonPickup = pickupData => async dispatch => {
   //pikcup object as payload
-  const response = await axios().put(
-    `/api/pickups/${pickupData.id}`,
-    pickupData
-  );
-  const updatedPickup = response.data;
-  dispatch(action(types.ABANDONED_PICKUP, updatedPickup));
+  try {
+    const acceptedPickup = {
+      ...pickupData
+    };
+    delete pickupData.address;
+    delete pickupData.name;
+    delete pickupData.business_id;
+    delete pickupData.id;
+    await axios().put(`/api/pickups/${acceptedPickup.id}`, pickupData);
+    dispatch(action(types.ABANDONED_PICKUP, acceptedPickup));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getAcceptedPickups = () => async dispatch => {
   //array of pickups as payload
-  const response = await axios().get("/api/pickups/me");
-  const acceptedPickups = response.data;
-  dispatch(action(types.GET_ACCEPTED_PICKUPS, acceptedPickups));
+  try {
+    const response = await axios().get("/api/pickups/me");
+    const acceptedPickups = response.data;
+    dispatch(action(types.GET_ACCEPTED_PICKUPS, acceptedPickups));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getListedPickups = () => async dispatch => {
@@ -102,9 +118,18 @@ export const submitPickup = pickupData => async dispatch => {
 };
 
 export const editPickup = pickupData => async dispatch => {
-  const response = await axios.put(`/api/pickups/${pickupData.id}`, pickupData);
-  const updatedPickup = response.data;
-  dispatch(action(types.EDITED_PICKUP, updatedPickup));
+  const { id } = pickupData;
+  const updatedPickup = { ...pickupData };
+  delete pickupData.id;
+  delete pickupData.business_id;
+  delete pickupData.name;
+  delete pickupData.address;
+  try {
+    await axios().put(`/api/pickups/${id}`, pickupData);
+    dispatch(action(types.EDITED_PICKUP, updatedPickup));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const deletePickup = id => async dispatch => {

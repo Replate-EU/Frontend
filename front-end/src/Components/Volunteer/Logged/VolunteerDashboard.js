@@ -9,37 +9,27 @@ import {
 } from "../../../state/actionCreators";
 
 
-const Div = styled.div`
-display: flex;
-flex-flow: row wrap;
-justify-content: space-evenly;
-`;
-
 export function VolunteerDashboard({
   getAcceptedPickups,
   abandonPickup,
   acceptedPickups
 }) {
-  const [pickups, setPickups] = useState([]);
-
-  //get info about how to make token percist
   useEffect(() => {
     getAcceptedPickups();
   }, []);
 
   return (
-    <div>
-      <Div>
+    <div className="presentational-container">
         {acceptedPickups.map(pickup => {
           return (
             <VolunteerPickupCard
               pickup={pickup}
               key={pickup.id}
-              abandonPickup={abandonPickup}
+              handleAction={abandonPickup}
+              sad={true}
             />
           );
         })}
-      </Div>
     </div>
   );
 }
@@ -53,4 +43,3 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, { getAcceptedPickups, abandonPickup })(
   VolunteerDashboard
 );
-

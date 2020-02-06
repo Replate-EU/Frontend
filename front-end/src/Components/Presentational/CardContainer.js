@@ -1,9 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export default function CardContainer() {
-    return(
-        <div className="card-container">
-            
-        </div>
-    )
+  return <div className="card-container" />;
 }
