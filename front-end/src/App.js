@@ -20,6 +20,7 @@ import SignUp from "./Components/SignUp";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
+import RestrictedRoute from "./auth/restrictedRoute";
 
 function App({ appState, user, checkToken, logout }) {
   useEffect(() => {
@@ -29,35 +30,31 @@ function App({ appState, user, checkToken, logout }) {
   }, []);
   return (
     <div className="App">
-
       <div className="container">
-
       <Navbar appState={appState} user={user} logout={logout} />
-      
-        <Switch>
-          <Route exact path="/">
-            <SignUp />
-          </Route>
-          <Route exact path="/business">
-            <FormBusiness />
-          </Route>
-          <Route exact path="/volunteer">
-            <FormVolunteer />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/business/dashboard">
-            <BusinessDashboard />
-          </Route>
-          <Route exact path="/volunteer/dashboard">
-            <VolunteerDashboard />
-          </Route>
-          <Route exact path="/volunteer/pickups">
-            <VolunteerPickups />
-          </Route>
-        </Switch>
-      
+      <Switch>
+        <Route exact path="/">
+          <SignUp />
+        </Route>
+        <Route exact path="/business">
+          <FormBusiness />
+        </Route>
+        <Route exact path="/volunteer">
+          <FormVolunteer />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <RestrictedRoute exact path="/business/dashboard">
+          <BusinessDashboard />
+        </RestrictedRoute>
+        <RestrictedRoute exact path="/volunteer/dashboard">
+          <VolunteerDashboard />
+        </RestrictedRoute>
+        <RestrictedRoute exact path="/volunteer/pickups">
+          <VolunteerPickups />
+        </RestrictedRoute>
+      </Switch>
     </div>
   );
 }

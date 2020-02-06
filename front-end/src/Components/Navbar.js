@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Modal from "./Modal/Modal";
 
 export default function Navbar({ appState, user, logout }) {
+  const history = useHistory();
   if (!appState) {
     return (
       <section className="navbar-container">
@@ -25,13 +26,13 @@ export default function Navbar({ appState, user, logout }) {
           <nav>
             <ul>
               <li>
-                <button onClick={logout}>Log out</button>
+                <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
                 <NavLink to="/volunteer/dashboard">Accepted pickups</NavLink>
               </li>
               <li>
-                <NavLink to="/volunteer/pikcups">Available pickups</NavLink>
+                <NavLink to="/volunteer/pickups">Available pickups</NavLink>
               </li>
             </ul>
           </nav>
@@ -43,7 +44,7 @@ export default function Navbar({ appState, user, logout }) {
           <nav>
             <ul>
               <li>
-                <button onClick={logout}>Log out</button>
+                <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
                 <NavLink to="/business/dashboard">Listed pickups</NavLink>
