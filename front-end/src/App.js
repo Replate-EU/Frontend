@@ -31,13 +31,7 @@ function App({ appState, user, checkToken }) {
     <div className="App">
       
      
-        <nav className="NavBar">
-          <Modal />
-          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
-          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
-          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
-          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
-        </nav>
+        <Navbar />
       <div className="container">
         <Switch>
           <Route exact path="/">
