@@ -9,9 +9,7 @@ import {
 } from "../../../state/actionCreators";
 import VolunteerPickupCard from "./VolunteerPickupCard";
 
-const Div = styled.div`
-  
-`;
+
 
 export function VolunteerPickups({
   acceptPickup,
@@ -24,8 +22,8 @@ export function VolunteerPickups({
   }, []);
 
   return (
-    <div>
-      <Div>
+    <div className="presentational-container">
+      
         {availablePickups.map(pickup => {
           return (
             <VolunteerPickupCard
@@ -37,7 +35,7 @@ export function VolunteerPickups({
             />
           );
         })}
-      </Div>
+     
     </div>
   );
 }
