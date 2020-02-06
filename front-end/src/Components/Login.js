@@ -54,13 +54,20 @@ export function Login({ login }) {
           initialValues={initialState}
         >
           <Form className="form">
-            
             <div>
-            <label>
-              Username
-              <input type="text" name="username" />
-              <ErrorMessage name="username" component="div" className="error" />
-            </label>
+              <label>
+                Username
+                <Field
+                  type="text"
+                  name="username"
+                  required
+                />
+                <ErrorMessage
+                  name="username"
+                  component="div"
+                  className="error"
+                />
+              </label>
             </div>
 
             {/* <label>E-mail</label>
@@ -71,20 +78,26 @@ export function Login({ login }) {
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
             <div>
-            <label>
-              Password
-              <Field
-                type="password"
-                id="password"
-                name="password"
-                className="input"
-              />
-              <ErrorMessage name="password" component="div" className="error" />
-            </label>
+              <label>
+                Password
+                <Field
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="input"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error"
+                />
+              </label>
             </div>
 
-            {/* <label>Account type: </label>
-            <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
+            {/* <label>Account type: </label> */}
+            {/* <button type="button" onClick={handleType}>
+              {type ? "VOLUNTEER" : "BUSINESS"}
+            </button> */}
 
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
 

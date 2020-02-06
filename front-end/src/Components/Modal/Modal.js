@@ -13,7 +13,6 @@ export default function Modal() {
   return (
     <div className>
       <button
-        className="colored-btn"
         onClick={e => {
           showModal();
         }}
