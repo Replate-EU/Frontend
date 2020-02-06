@@ -9,7 +9,7 @@ export default function Modal() {
   }
 
   return (
-    <div>
+    <div className>
       <button
         onClick={e => {
           showModal();
