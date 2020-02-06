@@ -7,7 +7,6 @@ import axiosWithAuth from "../auth/axiosWithAuth";
 import { login } from "../state/actionCreators";
 import { connect } from "react-redux";
 
-
 const Container = styled.div`
   display: flex;
 `;
@@ -29,32 +28,14 @@ export function Login({ login }) {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('please enter your name'),
-    phone: Yup.string().required('please enter your phone number'),
-    password: Yup.string().required('please enter a password'),
-    repeat_password: Yup.string().required( 'please enter the same password')
+    name: Yup.string().required("please enter your name"),
+    // phone: Yup.string().required("please enter your phone number"),
+    password: Yup.string().required("please enter a password"),
+    // repeat_password: Yup.string().required("please enter the same password")
   });
 
   function handleSubmit(values, actions) {
-    // console.log(values);
     login(values, history);
-/*     if (!type) {
-      values.user_type = "business";
-    }
-    // console.log(values.user_type);
-
-    axiosWithAuth()
-      .post("/api/auth/login", values)
-      .then(res => {
-        console.log(res);
-        // res.body.token;
-        localStorage.setItem("token", res.data.token);
-        //should work, we'll see when api is posted
-        history.push(`/${res.data.user_type}/dashboard`);
-      })
-      .catch(err => {
-        console.log(err);
-      }); */
   }
 
   function handleType() {
@@ -71,7 +52,7 @@ export function Login({ login }) {
         <p>Log to Your Account</p>
         <Formik
           onSubmit={handleSubmit}
-          validationSchema={validationSchema}
+          // validationSchema={validationSchema}
           initialValues={initialState}
         >
           <Form className="form">
