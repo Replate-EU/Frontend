@@ -21,6 +21,7 @@ import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 import RestrictedRoute from "./auth/restrictedRoute";
+import logo from './icons/Logo.webp';
 
 function App({ appState, user, checkToken, logout }) {
   const history = useHistory();
@@ -31,6 +32,8 @@ function App({ appState, user, checkToken, logout }) {
   }, []);
   return (
     <div className="App">
+
+      <img src={logo} className="logo"/>
       <Navbar appState={appState} user={user} logout={logout} />
       
       <div className="container">
