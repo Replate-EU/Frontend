@@ -41,7 +41,6 @@ function App({ appState, user, checkToken, logout }) {
           <Route exact path="/volunteer">
             <FormVolunteer />
           </Route>
-
           <Route exact path="/login">
             <Login />
           </Route>
