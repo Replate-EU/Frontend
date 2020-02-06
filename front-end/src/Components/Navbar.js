@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import Modal from "./Modal/Modal";
+import logo from '../icons/Logo.webp';
 
 export default function Navbar({ appState, user, logout }) {
   const history = useHistory();
@@ -8,14 +9,28 @@ export default function Navbar({ appState, user, logout }) {
     return (
       <section className="navbar-container">
         <nav>
-          <ul>
-            <li>
-              <NavLink to="/login" replace>Log in</NavLink>
-            </li>
-            <li>
-              <NavLink exact to="/" replace>Register</NavLink>
-            </li>
-          </ul>
+        
+          
+            <div>
+            <img src={logo} className="logo"/>
+          </div>
+          
+            
+              
+            
+            
+           <ul className="right-navbar">
+             <li>
+                <NavLink to="/login" replace>Log in</NavLink>
+              </li>
+              <li> 
+                <NavLink exact to="/" replace>Register</NavLink>
+              </li>
+             </ul>   
+              
+          
+            
+          
         </nav>
       </section>
     );
@@ -23,7 +38,13 @@ export default function Navbar({ appState, user, logout }) {
     if (user.user_type === "volunteer") {
       return (
         <section className="navbar-container">
+
           <nav>
+
+          <div>
+            <img src={logo} className="logo"/>
+          </div>
+
             <ul>
               <li>
                 <button onClick={() => logout(history)}>Log out</button>
@@ -40,6 +61,7 @@ export default function Navbar({ appState, user, logout }) {
               <Modal />
             </li>
             </ul>
+
           </nav>
         </section>
       );
@@ -47,6 +69,9 @@ export default function Navbar({ appState, user, logout }) {
       return (
         <section className="navbar-container">
           <nav>
+            <div>
+            <img src={logo} className="logo"/>
+          </div>
             <ul>
               <li>
                 <button onClick={() => logout(history)}>Log out</button>
