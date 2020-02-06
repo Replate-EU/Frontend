@@ -18,10 +18,12 @@ width: 49%;
 
 export default function FormBusiness() {
 
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
     const validationSchema = Yup.object().shape({
         name: Yup.string().required('please enter your company name'),
         username: Yup.string().required('please enter your company name'),
-        contact_number: Yup.string().required('please enter your phone number'),
+        contact_number: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
         // email: Yup.string().email('put a valid email pls').required('please enter your email'),
         password: Yup.string().required('please enter a password'),
         repeat_password: Yup.string().required('please enter the same password')

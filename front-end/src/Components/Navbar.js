@@ -10,10 +10,10 @@ export default function Navbar({ appState, user, logout }) {
         <nav>
           <ul>
             <li>
-              <NavLink to="/login">Log in</NavLink>
+              <NavLink to="/login" replace>Log in</NavLink>
             </li>
             <li>
-              <NavLink to="/">Register</NavLink>
+              <NavLink exact to="/" replace>Register</NavLink>
             </li>
           </ul>
         </nav>
@@ -29,10 +29,12 @@ export default function Navbar({ appState, user, logout }) {
                 <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
-                <NavLink to="/volunteer/dashboard">Accepted pickups</NavLink>
+                <NavLink to="/volunteer/dashboard" replace>Accepted pickups</NavLink>
               </li>
               <li>
-                <NavLink to="/volunteer/pickups">Available pickups</NavLink>
+
+                <NavLink to="/volunteer/pickups" replace>Available pickups</NavLink>
+
               </li>
             </ul>
           </nav>
@@ -47,7 +49,7 @@ export default function Navbar({ appState, user, logout }) {
                 <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
-                <NavLink to="/business/dashboard">Listed pickups</NavLink>
+                <NavLink to="/business/dashboard" replace>Listed pickups</NavLink>
               </li>
             </ul>
           </nav>
@@ -64,3 +66,4 @@ export default function Navbar({ appState, user, logout }) {
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink>
           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> 
         </nav> */}
+

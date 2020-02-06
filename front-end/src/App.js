@@ -57,6 +57,7 @@ function App({ appState, user, checkToken, logout }) {
         </Switch>
       </div>
     </div>
+    </div>
   );
 }
 
