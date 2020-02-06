@@ -455,6 +455,12 @@ li {
   align-items: center;
   min-height: 500px;
 }
+button:focus {
+  outline: none;
+}
+a:focus {
+  outline: none;
+}
 .button-big {
   max-width: 320px;
   width: 100%;
