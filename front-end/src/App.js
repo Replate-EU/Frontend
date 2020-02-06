@@ -1,6 +1,6 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux aactions

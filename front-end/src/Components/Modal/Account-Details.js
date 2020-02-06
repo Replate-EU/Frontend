@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../auth/axiosWithAuth";
 import Form from "./Edit-Form";
+import { connect } from "react-redux";
+import {
+  deleteUserDetails,
+  submitUserDetails,
+  editUserDetails
+} from "../../state/actionCreators";
 
-export default function AccountDetails() {
-  const [details, setDetails] = useState({});
-  useEffect(() => {
-    axiosWithAuth()
-      .get("/api/users")
-      .then(res => {
-        console.log(res);
-        let user = res.data;
-        delete user.id;
-        delete user.account_details;
-        setDetails(user);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+export function AccountDetails({
+  user,
+  userDetails,
+  deleteUserDetails,
+  submitUserDetails,
+  editUserDetails
+}) {
+  const [details, setDetails] = useState(user);
+
   const [update, setUpdate] = useState({});
   const [edit, setEdit] = useState(false);
 
@@ -71,3 +70,16 @@ export default function AccountDetails() {
     </>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    userDetails: state.userDetails
+  };
+}
+
+export default connect(mapStateToProps, {
+  editUserDetails,
+  deleteUserDetails,
+  submitUserDetails
+})(AccountDetails);

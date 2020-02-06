@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Switch, Route, Link, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import axiosWithAuth from '../auth/axiosWithAuth';
-
+import React, { useState } from "react";
+import { Switch, Route, Link, useHistory } from "react-router-dom";
+import styled from "styled-components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axiosWithAuth from "../auth/axiosWithAuth";
+import { login } from "../state/actionCreators";
+import { connect } from "react-redux";
 
 const Container = styled.div`
   display: flex;
@@ -16,66 +17,39 @@ const Column = styled.div`
   width: 49%;
 `;
 
-export default function Login() {
+export function Login({ login }) {
   const [type, setType] = useState(true);
 
   const history = useHistory();
 
-    const initialState = {
-        
-        username: '',
-        
-        // email: '',
-        password: '',
-        // user_type: 'volunteer',
-      }
-      
-    
-      function handleSubmit(values, actions) {
-          // console.log(values);
-          if(!type) {
-            values.user_type = 'business';
-          }
-          // console.log(values.user_type);
-          
-          axiosWithAuth()
-          .post("/api/auth/login", values)
-          .then(res => {
-              // console.log(res.data.token) 
-              // res.body.token;
-              localStorage.setItem("token", res.data.token);
-              //should work, we'll see when api is posted
-              history.push(`/${res.data.user_type}/pickups`);
-          })
-          .catch(err => {
-              console.log(err)
-          })
-      }
+  const initialState = {
+    username: "",
 
-      // function handleType() {
-      //   setType(!type);
-      // }
-
+    // email: '',
+    password: ""
+    // user_type: 'volunteer',
+  };
 
   function handleSubmit(values, actions) {
-    console.log(values);
-    if (!type) {
+    // console.log(values);
+    login(values, history);
+/*     if (!type) {
       values.user_type = "business";
     }
     // console.log(values.user_type);
 
-    axios
+    axiosWithAuth()
       .post("/api/auth/login", values)
       .then(res => {
         console.log(res);
         // res.body.token;
         localStorage.setItem("token", res.data.token);
         //should work, we'll see when api is posted
-        history.push(`/${res.data.user_type}/pickups`);
+        history.push(`/${res.data.user_type}/dashboard`);
       })
       .catch(err => {
         console.log(err);
-      });
+      }); */
   }
 
   function handleType() {
@@ -96,7 +70,6 @@ export default function Login() {
           initialValues={initialState}
         >
           <Form className="form">
-
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
             <label>Username</label>
             <Field
@@ -128,7 +101,7 @@ export default function Login() {
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
 
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
-          
+
             <button type="submit">LOGIN</button>
           </Form>
         </Formik>
@@ -136,3 +109,5 @@ export default function Login() {
     </Container>
   );
 }
+
+export default connect(state => state, { login })(Login);
