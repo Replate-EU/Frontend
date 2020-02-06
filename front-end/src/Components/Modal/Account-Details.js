@@ -50,6 +50,7 @@ export function AccountDetails({
     const updateUser = { ...details, ...update };
     delete updateUser.id;
     delete updateUser.user_type;
+    console.log(updateUser);
     axiosWithAuth()
       .put("/api/users", updateUser)
       .then(res => {

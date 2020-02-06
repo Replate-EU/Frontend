@@ -59,7 +59,6 @@ export function Login({ login }) {
                 Username
                 <Field
                   type="text"
-                  placeholder="username"
                   name="username"
                   required
                 />

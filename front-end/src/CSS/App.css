@@ -506,6 +506,7 @@ a:focus {
 .navbar-container nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 5px;
 }
 .navbar-container nav ul {
@@ -652,6 +653,7 @@ form.general-form {
   display: flex;
   flex-direction: column;
   width: 80%;
+  box-sizing: border-box;
 }
 input.general-input {
   position: absolute;
