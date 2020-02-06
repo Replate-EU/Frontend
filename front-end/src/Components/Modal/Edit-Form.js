@@ -48,7 +48,7 @@ export default function Form(props) {
             }}
           />
         </label>
-        <input type="submit" />
+        <input type="submit" className='colored-btn'/>
       </form>
     </div>
   );

@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(../fonts/Montserrat/Montserrat-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url(../fonts/Quicksand/Quicksand-VariableFont_wght.ttf) format("truetype");
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1 {
+ .heading();
+}
+h2 {
+  .subheading();
+}
+h3, label {
+  .label();
+}
+
+p,
+a,
+li {
+  .plain-text();
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}

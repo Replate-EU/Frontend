@@ -10,7 +10,7 @@ export default function Modal() {
 
   return (
     <div className>
-      <button
+      <button className='colored-btn'
         onClick={e => {
           showModal();
         }}

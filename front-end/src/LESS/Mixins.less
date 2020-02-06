@@ -1,0 +1,35 @@
+
+//FONT MIXINS
+.plain-text () {
+  color: @plain-text-color;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.header-text() {
+  font-weight: bold;
+  color: @main-font-color;
+}
+
+//H1 and alike
+.heading() {
+  font-family: Quicksand, sans-serif;
+  font-size: 19px;
+  .header-text();
+}
+//H2 and alike
+.subheading() {
+  font-family: Quicksand, sans-serif;
+  font-size: 24px;
+  .header-text();
+}
+//Input labels and button text
+.label() {
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  .header-text();
+}

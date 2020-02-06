@@ -60,7 +60,7 @@ export function AccountDetails({
           <h3>Contact: {details.contact_number}</h3>
         </div>
       )}
-      <button
+      <button className='colored-btn'
         onClick={e => {
           showEdit();
         }}
