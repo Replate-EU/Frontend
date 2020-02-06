@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axiosWithAuth from "../../auth/axiosWithAuth";
 import Form from "./Edit-Form";
 import { connect } from "react-redux";
@@ -7,18 +7,36 @@ import {
   submitUserDetails,
   editUserDetails
 } from "../../state/actionCreators";
+import { node } from "prop-types";
 
 export function AccountDetails({
   user,
   userDetails,
   deleteUserDetails,
   submitUserDetails,
-  editUserDetails
+  editUserDetails,
+  showModal
 }) {
   const [details, setDetails] = useState(user);
 
   const [update, setUpdate] = useState({});
   const [edit, setEdit] = useState(false);
+
+  const modalNode = useRef();
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+    }
+  }, [])
+
+  function handleClick(e){
+    if(modalNode.current.contains(e.target)){
+      return
+    }
+    showModal();
+  }
 
   function editDetails(event) {
     setUpdate({ ...update, [event.target.name]: event.target.value });
@@ -45,7 +63,7 @@ export function AccountDetails({
   }
 
   return (
-    <>
+    <div className='modalCard' ref={modalNode}>
       {edit ? (
         <Form
           update={update}
@@ -67,7 +85,7 @@ export function AccountDetails({
       >
         {edit ? "Cancel" : "Edit Account Details"}
       </button>
-    </>
+    </div>
   );
 }
 

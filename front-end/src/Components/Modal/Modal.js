@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import AccountDetails from "./Account-Details";
 
 export default function Modal() {
@@ -7,6 +7,8 @@ export default function Modal() {
   function showModal() {
     setModal(!modal);
   }
+
+  const modalNode = useRef();
 
   return (
     <div className>
@@ -18,8 +20,8 @@ export default function Modal() {
         My Account
       </button>
       {modal ? (
-        <div className="modal-container">
-          <AccountDetails />
+        <div className="modal-container" >
+          <AccountDetails showModal={showModal}/>
         </div>
       ) : null}
     </div>
