@@ -1,7 +1,7 @@
 import React from "react";
 import edit from "../../../icons/edit.png";
 import close from "../../../icons/close.png";
-import moment from "moment";
+import moment from 'moment';
 
 export default function BusinessPickupCard({ pickup, update, remove }) {
   const updatedPickupInfo = {
