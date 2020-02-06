@@ -12,11 +12,6 @@ import {
   editPickup
 } from "../../../state/actionCreators";
 
-const Div = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-`;
 export function BusinessDashboard({
   listedPickups,
   getListedPickups,
@@ -68,7 +63,7 @@ export function BusinessDashboard({
         </Form>
       </Formik>
 
-      <Div>
+      <div className="presentational-container">
         {listedPickups.map(pickup => {
           return (
             <BusinessPickupCard
@@ -78,7 +73,7 @@ export function BusinessDashboard({
             />
           );
         })}
-      </Div>
+      </div>
     </div>
   );
 }

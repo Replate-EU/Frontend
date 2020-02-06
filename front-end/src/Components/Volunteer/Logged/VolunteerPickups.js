@@ -9,8 +9,6 @@ import {
 } from "../../../state/actionCreators";
 import VolunteerPickupCard from "./VolunteerPickupCard";
 
-
-
 export function VolunteerPickups({
   acceptPickup,
   availablePickups,
@@ -23,19 +21,17 @@ export function VolunteerPickups({
 
   return (
     <div className="presentational-container">
-      
-        {availablePickups.map(pickup => {
-          return (
-            <VolunteerPickupCard
-              pickup={pickup}
-              key={pickup.id}
-              action="Accept"
-              action1={acceptPickup}
-              user_id={user_id}
-            />
-          );
-        })}
-     
+      {availablePickups.map(pickup => {
+        return (
+          <VolunteerPickupCard
+            pickup={pickup}
+            key={pickup.id}
+            handleAction={acceptPickup}
+            user_id={user_id}
+            sad={false}
+          />
+        );
+      })}
     </div>
   );
 }

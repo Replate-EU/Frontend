@@ -1,27 +1,60 @@
-import React from 'react';
-import edit from '../../../icons/edit.png'
-import close from '../../../icons/close.png'
+import React from "react";
+import moment from "moment";
 
-export default function VolunteerPickupCard(props) {
-    console.log(props)
-
-    function addToList() {
-        //remove from available pickups
-        // props.claimed_by = something
-        //setState()
-    }
-    // console.log(props.data)
-    return(
-        
-        <div className="pickups">
-            <h3>Address:</h3>
-            <p><h3>Type: </h3> {props.pickup.food_type}</p>
-            <p><h3>Quantity: </h3> {props.pickup.quantity * 1000} g</p>
-            <p><h3>Preferred pickup time: </h3> {props.pickup.pickup_time}</p>
-            <p><h3>Brand: </h3> {props.pickup.business_id}</p> {/* business_id.name */}
-             <button className="button" onClick={addToList}>ACCEPT</button>
-        </div> 
-    )
-}   
-
- 
+export default function VolunteerPickupCard({
+  pickup,
+  handleAction,
+  sad,
+  user_id
+}) {
+  const acceptedPickup = sad
+    ? {
+        ...pickup,
+        claimed_by: null
+      }
+    : {
+        ...pickup,
+        claimed_by: user_id
+      };
+  return (
+    <div className="card-container">
+      <p className="data-row">
+        <span className="data-label">Type:</span>
+        <span className="data-value">{pickup.food_type}</span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Quantity:</span>
+        <span className="data-value">{pickup.quantity * 1000} g</span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Pickup time:</span>
+        <span className="data-value">
+          {moment(Number(pickup.pickup_time)).format("MMM Do, YYYY, HH:mm")}
+        </span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Accepted:</span>
+        <span className="data-value">
+          {pickup.claimed_by
+            ? "Yes! We'll pick it up shortly!"
+            : "No, but it will be soon!"}{" "}
+        </span>
+      </p>
+      {sad ? (
+        <button
+          className="button-small button"
+          onClick={() => handleAction(acceptedPickup)}
+        >
+          "Abandon"
+        </button>
+      ) : (
+        <button
+          className="button-small button"
+          onClick={() => handleAction(acceptedPickup)}
+        >
+          "Accept"
+        </button>
+      )}
+    </div>
+  );
+}
