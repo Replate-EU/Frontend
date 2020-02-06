@@ -11,9 +11,9 @@ export default function Modal() {
   const modalNode = useRef();
 
   return (
-    <div className>
-      <button
-        className="colored-btn"
+    <div>
+      <button classname="modal"
+
         onClick={e => {
           showModal();
         }}

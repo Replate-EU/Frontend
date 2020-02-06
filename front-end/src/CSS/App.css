@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+.hover:hover {
+    background:white;
+    border: 1px solid #d0d0d0;
+}
+
+.submit {
+    color:white;
+
+}
+.submit:hover {
+    background:#008080;
+    border: 1px solid #d0d0d0
+}
+.modal:hover {
+    background:white;
+    border: 1px solid #d0d0d0
+}
+=======
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -710,3 +729,4 @@ button.colored-btn:focus {
 .modal-container .modalCard .account h3:last-of-type {
   margin: 0 auto;
 }
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6

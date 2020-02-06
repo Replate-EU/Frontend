@@ -146,7 +146,9 @@ export default function FormBusiness() {
             <button type="submit">Continue</button>
           </Form>
         </Formik>
+
       </Column>
     </Container>
   );
 }
+
