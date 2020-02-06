@@ -15,19 +15,12 @@ export const Borders = styled.div`
   padding: 10px 0;
   width: 50%;
 `;
-export const Container = styled.div`
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  border: 3px solid black;
-  height: 100vh;
-  width: 50%;
-  margin: -3px 0;
-`;
 
-export const Button = styled.button`
+
+export const Button1 = styled.button`
   background: white;
   border: 2px solid black;
   border-radius: 5px;
   padding: 25px;
 `;
+

@@ -4,7 +4,10 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6
 }
 
 .Boxes {
@@ -17,7 +20,11 @@
 }
 
 .input {
+<<<<<<< HEAD
   border: 3px solid rgb(66, 50, 50);
+=======
+  border: 3px solid black;
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6
   border-radius: 2px;
 }
 
@@ -39,7 +46,11 @@
 }
 
 .form button {
+<<<<<<< HEAD
   Color: white;
+=======
+  background: white;
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6
   border: 3px solid black;
   box-shadow: 2px 2px black;
   margin-top: 16px;
@@ -62,10 +73,48 @@
   bottom: 0;
 }
 
+<<<<<<< HEAD
+=======
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: grey;
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+}
+
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6
 .active {
   color: red;
 }
 
 a {
   text-decoration: none;
+<<<<<<< HEAD
+=======
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  background-color: greenyellow;
+}
+
+a.active {
+  color: black;
+  /* background-color: greenyellow; */
+  /* visibility: hidden; */
+  display: none;
+>>>>>>> 2f691bea45fe21ff6354bf3647fc7ec264a6fcc6
 }

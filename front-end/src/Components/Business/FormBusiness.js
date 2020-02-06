@@ -21,8 +21,8 @@ export default function FormBusiness() {
     const validationSchema = Yup.object().shape({
         name: Yup.string().required('please enter your company name'),
         username: Yup.string().required('please enter your company name'),
-        phone: Yup.string().required('please enter your phone number'),
-        email: Yup.string().email('put a valid email pls').required('please enter your email'),
+        contact_number: Yup.string().required('please enter your phone number'),
+        // email: Yup.string().email('put a valid email pls').required('please enter your email'),
         password: Yup.string().required('please enter a password'),
         repeat_password: Yup.string().required('please enter the same password')
       });
@@ -42,15 +42,15 @@ export default function FormBusiness() {
       }
     
       function handleSubmit(values, actions) {
-        console.log(values);
-        console.log(actions);
+        // console.log(values);
+        // console.log(actions);
         const allValues = {
           ...values,
           
           user_type: 'business',
         }
         delete allValues.repeat_password;
-        console.log(allValues);
+        // console.log(allValues);
 
         axiosWithAuth()
         .post('/api/auth/register', allValues)
@@ -75,7 +75,7 @@ export default function FormBusiness() {
         <p>Create Your Account</p>
         <Formik
         onSubmit={handleSubmit}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         initialValues={initialState}
         >
           <Form className="form">

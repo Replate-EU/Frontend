@@ -15,7 +15,7 @@ export default function Modal() {
           showModal();
         }}
       >
-        Show Modal
+        My Account
       </button>
       {modal ? (
         <div className="modal-container">
