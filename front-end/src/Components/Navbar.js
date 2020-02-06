@@ -10,10 +10,14 @@ export default function Navbar({ appState, user, logout }) {
         <nav>
           <ul>
             <li>
-              <NavLink to="/login" replace>Log in</NavLink>
+              <NavLink to="/login" replace>
+                Log in
+              </NavLink>
             </li>
             <li>
-              <NavLink exact to="/" replace>Register</NavLink>
+              <NavLink exact to="/" replace>
+                Register
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -29,16 +33,18 @@ export default function Navbar({ appState, user, logout }) {
                 <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
-                <NavLink to="/volunteer/dashboard" replace>Accepted pickups</NavLink>
-              </li>
-              <li>  
-
-                <NavLink to="/volunteer/pickups" replace>Available pickups</NavLink>
-
+                <NavLink to="/volunteer/dashboard" replace>
+                  Accepted pickups
+                </NavLink>
               </li>
               <li>
-              <Modal />
-            </li>
+                <NavLink to="/volunteer/pickups" replace>
+                  Available pickups
+                </NavLink>
+              </li>
+              <li>
+                <Modal />
+              </li>
             </ul>
           </nav>
         </section>
@@ -52,7 +58,12 @@ export default function Navbar({ appState, user, logout }) {
                 <button onClick={() => logout(history)}>Log out</button>
               </li>
               <li>
-                <NavLink to="/business/dashboard" replace>Listed pickups</NavLink>
+                <NavLink to="/business/dashboard" replace>
+                  Listed pickups
+                </NavLink>
+              </li>
+              <li>
+                <Modal />
               </li>
             </ul>
           </nav>
@@ -62,11 +73,12 @@ export default function Navbar({ appState, user, logout }) {
   }
 }
 
-{/* <nav className="NavBar">
+{
+  /* <nav className="NavBar">
           <Modal />
           <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> 
           <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink>
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink>
           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> 
-        </nav> */}
-
+        </nav> */
+}
