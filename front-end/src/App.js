@@ -31,30 +31,31 @@ function App({ appState, user, checkToken, logout }) {
   return (
     <div className="App">
       <div className="container">
-      <Navbar appState={appState} user={user} logout={logout} />
-      <Switch>
-        <Route exact path="/">
-          <SignUp />
-        </Route>
-        <Route exact path="/business">
-          <FormBusiness />
-        </Route>
-        <Route exact path="/volunteer">
-          <FormVolunteer />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <RestrictedRoute exact path="/business/dashboard">
-          <BusinessDashboard />
-        </RestrictedRoute>
-        <RestrictedRoute exact path="/volunteer/dashboard">
-          <VolunteerDashboard />
-        </RestrictedRoute>
-        <RestrictedRoute exact path="/volunteer/pickups">
-          <VolunteerPickups />
-        </RestrictedRoute>
-      </Switch>
+        <Navbar appState={appState} user={user} logout={logout} />
+        <Switch>
+          <Route exact path="/">
+            <SignUp />
+          </Route>
+          <Route exact path="/business">
+            <FormBusiness />
+          </Route>
+          <Route exact path="/volunteer">
+            <FormVolunteer />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <RestrictedRoute exact path="/business/dashboard">
+            <BusinessDashboard />
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/dashboard">
+            <VolunteerDashboard />
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/pickups">
+            <VolunteerPickups />
+          </RestrictedRoute>
+        </Switch>
+      </div>
     </div>
   );
 }
