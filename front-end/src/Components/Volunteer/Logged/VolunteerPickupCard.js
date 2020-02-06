@@ -1,37 +1,60 @@
-import React from 'react';
-import edit from '../../../icons/edit.png'
-import close from '../../../icons/close.png'
+import React from "react";
+import moment from "moment";
 
-export default function VolunteerPickupCard(props) {
-    console.log(props)
-
-    function addToList() {
-        //remove from available pickups
-        // props.claimed_by = something
-        //setState()
-    }
-    // console.log(props.data)
-    return(
-        <div className="pickups">
-            <div className="business-card-container">
-                <a><img src={edit}/></a>
-                <a ><img src={close}/></a>
-            </div>
-            <h3>Address:</h3>
-            <h3>Type: {props.pickup.food_type}</h3>
-            <h3>Quantity: {props.pickup.quantity} g</h3>
-            <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
-             <h3>Brand: {props.pickup.business_id}</h3> {/* business_id.name */}
-             <a className="button2" onClick={addToList}>ACCEPT</a>
-        </div>
-    )
-}   
-
-{/* <div className="pickups">
-            <h3>Address:</h3>
-            <h3>Type: {props.pickup.food_type}</h3>
-            <h3>Quantity: {props.pickup.quantity} g</h3>
-            <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
-             <h3>Brand: {props.pickup.business_id}</h3> 
-             <a className="button2" onClick={addToList}>ACCEPT</a>
-        </div> */}
+export default function VolunteerPickupCard({
+  pickup,
+  handleAction,
+  sad,
+  user_id
+}) {
+  const acceptedPickup = sad
+    ? {
+        ...pickup,
+        claimed_by: null
+      }
+    : {
+        ...pickup,
+        claimed_by: user_id
+      };
+  return (
+    <div className="card-container">
+      <p className="data-row">
+        <span className="data-label">Type:</span>
+        <span className="data-value">{pickup.food_type}</span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Quantity:</span>
+        <span className="data-value">{pickup.quantity * 1000} g</span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Pickup time:</span>
+        <span className="data-value">
+          {moment(Number(pickup.pickup_time)).format("MMM Do, YYYY, HH:mm")}
+        </span>
+      </p>
+      <p className="data-row">
+        <span className="data-label">Accepted:</span>
+        <span className="data-value">
+          {pickup.claimed_by
+            ? "Yes! We'll pick it up shortly!"
+            : "No, but it will be soon!"}{" "}
+        </span>
+      </p>
+      {sad ? (
+        <button
+          className="button-small button"
+          onClick={() => handleAction(acceptedPickup)}
+        >
+          "Abandon"
+        </button>
+      ) : (
+        <button
+          className="button-small button"
+          onClick={() => handleAction(acceptedPickup)}
+        >
+          "Accept"
+        </button>
+      )}
+    </div>
+  );
+}

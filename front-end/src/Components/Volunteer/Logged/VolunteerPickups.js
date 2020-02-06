@@ -9,12 +9,6 @@ import {
 } from "../../../state/actionCreators";
 import VolunteerPickupCard from "./VolunteerPickupCard";
 
-const Div = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-`;
-
 export function VolunteerPickups({
   acceptPickup,
   availablePickups,
@@ -26,20 +20,18 @@ export function VolunteerPickups({
   }, []);
 
   return (
-    <div>
-      <Div>
-        {availablePickups.map(pickup => {
-          return (
-            <VolunteerPickupCard
-              pickup={pickup}
-              key={pickup.id}
-              action="Accept"
-              action1={acceptPickup}
-              user_id={user_id}
-            />
-          );
-        })}
-      </Div>
+    <div className="presentational-container">
+      {availablePickups.map(pickup => {
+        return (
+          <VolunteerPickupCard
+            pickup={pickup}
+            key={pickup.id}
+            handleAction={acceptPickup}
+            user_id={user_id}
+            sad={false}
+          />
+        );
+      })}
     </div>
   );
 }

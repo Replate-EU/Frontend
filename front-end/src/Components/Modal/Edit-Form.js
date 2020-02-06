@@ -7,6 +7,7 @@ export default function Form(props) {
         <label>
           Username:
           <input
+            className="general-input"
             type="text"
             name="username"
             value={props.username}
@@ -15,9 +16,10 @@ export default function Form(props) {
             }}
           />
         </label>
-        <label>
+        {/* <label>
           Name:
           <input
+            className="general-input"
             type="text"
             name="name"
             value={props.name}
@@ -25,12 +27,13 @@ export default function Form(props) {
               props.editDetails(e);
             }}
           />
-        </label>
+        </label> */}
         <label>
           Contact:
           <input
+            className="general-input"
             type="text"
-            name="contact"
+            name="contact_number"
             value={props.contact}
             onChange={e => {
               props.editDetails(e);
@@ -40,6 +43,7 @@ export default function Form(props) {
         <label>
           Password:
           <input
+            className="general-input"
             type="password"
             name="password"
             value={props.password}
@@ -48,7 +52,7 @@ export default function Form(props) {
             }}
           />
         </label>
-        <input type="submit" />
+        <input type="submit" className="colored-btn" />
       </form>
     </div>
   );

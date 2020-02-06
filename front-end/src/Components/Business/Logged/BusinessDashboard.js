@@ -1,25 +1,23 @@
 import React, { useEffect } from "react";
 // import axios from 'axios';
-import BusinessPickupCard from "../../Volunteer/Logged/VolunteerPickupCard";
+import BusinessPickupCard from "./BusinessPickupCard";
 import styled from "styled-components";
 import { Field, ErrorMessage, Form, Formik } from "formik";
 import axiosWithAuth from "../../../auth/axiosWithAuth";
 import { connect } from "react-redux";
-import { getListedPickups, submitPickup } from "../../../state/actionCreators";
-const Pickup = styled.div`
-  background: red;
-  width: 30%;
-  margin: 10px;
-`;
-const Div = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-`;
+import {
+  getListedPickups,
+  submitPickup,
+  deletePickup,
+  editPickup
+} from "../../../state/actionCreators";
+
 export function BusinessDashboard({
   listedPickups,
   getListedPickups,
-  submitPickup
+  submitPickup,
+  deletePickup,
+  editPickup
 }) {
   useEffect(() => {
     getListedPickups();
@@ -65,11 +63,17 @@ export function BusinessDashboard({
         </Form>
       </Formik>
 
-      <Div>
+      <div className="presentational-container">
         {listedPickups.map(pickup => {
-          return <BusinessPickupCard pickup={pickup} />;
+          return (
+            <BusinessPickupCard
+              pickup={pickup}
+              update={editPickup}
+              remove={deletePickup}
+            />
+          );
         })}
-      </Div>
+      </div>
     </div>
   );
 }
@@ -80,6 +84,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getListedPickups, submitPickup })(
-  BusinessDashboard
-);
+export default connect(mapStateToProps, {
+  getListedPickups,
+  submitPickup,
+  deletePickup,
+  editPickup
+})(BusinessDashboard);
