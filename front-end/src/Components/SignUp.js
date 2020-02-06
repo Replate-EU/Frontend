@@ -9,14 +9,14 @@ export default function SignUp() {
       <div className="Boxes">
         <Box>
           <Link to="/business">
-            <a className="hover"></a>
+            <button className="hover"></button>
           </Link>
           <h3>I'm a business</h3>
           <p>I want to donate food</p>
         </Box>
         <Box>
           <Link to="/volunteer">
-            <a className="hover"></a>
+            <button className="hover"></button>
           </Link>
 
           <h3>I'm a volunteer</h3>
@@ -24,7 +24,7 @@ export default function SignUp() {
         </Box>
       </div>
       <Link to="/login">
-        <a className="button">Go to login page</a>
+        <button className="button">Go to login page</button>
       </Link>
     </>
   );

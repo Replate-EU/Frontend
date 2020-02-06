@@ -8,7 +8,7 @@ export default function Navbar() {
       <h1>Replate</h1>
       <nav>
         <NavLink exact to="/" activeClassName="active" replace>
-          Home
+          Signup
         </NavLink>
         {localStorage.getItem("token") ? (
           <>

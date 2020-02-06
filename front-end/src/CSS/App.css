@@ -455,9 +455,7 @@ li {
   align-items: center;
   min-height: 500px;
 }
-button:focus {
-  outline: none;
-}
+button:focus,
 a:focus {
   outline: none;
 }

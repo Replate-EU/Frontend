@@ -10,9 +10,7 @@ import {
 import VolunteerPickupCard from "./VolunteerPickupCard";
 
 const Div = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  
 `;
 
 export function VolunteerPickups({
