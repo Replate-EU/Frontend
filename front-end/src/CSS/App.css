@@ -541,6 +541,9 @@ li {
   width: 30%;
   margin: 10px;
 }
+.pickups p {
+  display: flex;
+}
 .button2 {
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   border: 1px solid #BC9CFF;
