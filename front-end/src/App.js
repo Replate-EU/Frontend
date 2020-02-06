@@ -17,7 +17,6 @@ import Login from "./Components/Login";
 import Modal from "./Components/Modal/Modal";
 import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
-import { Container, Borders } from "./Components/styled";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
@@ -42,7 +41,6 @@ function App({ appState, user, checkToken, logout }) {
           <Route exact path="/volunteer">
             <FormVolunteer />
           </Route>
-
           <Route exact path="/login">
             <Login />
           </Route>
