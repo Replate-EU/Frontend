@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Pickup, Button2 } from '../../styled';
-
 
 
 export default function VolunteerPickupCard(props) {
