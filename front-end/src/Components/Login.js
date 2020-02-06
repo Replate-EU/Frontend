@@ -29,9 +29,7 @@ export function Login({ login }) {
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().required("please enter your name"),
-    // phone: Yup.string().required("please enter your phone number"),
     password: Yup.string().required("please enter a password")
-    // repeat_password: Yup.string().required("please enter the same password")
   });
 
   function handleSubmit(values, actions) {
@@ -56,7 +54,6 @@ export function Login({ login }) {
           initialValues={initialState}
         >
           <Form className="form">
-            {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
             <div>
               <label>
                 Username

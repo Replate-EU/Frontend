@@ -33,7 +33,7 @@ function App({ appState, user, checkToken, logout }) {
   return (
     <div className="App">
 
-      <img src={logo} className="logo"/>
+      
       <Navbar appState={appState} user={user} logout={logout} />
       
       <div className="container">

@@ -503,6 +503,11 @@ a:focus {
 .button:hover::before {
   opacity: 1;
 }
+.navbar-container nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
 .navbar-container nav ul {
   display: flex;
   justify-content: flex-end;
@@ -510,7 +515,7 @@ a:focus {
   padding: 10px;
 }
 .navbar-container nav ul li {
-  padding: 5px 15px;
+  padding: 0 15px;
 }
 .navbar-container nav a {
   text-decoration: none;
@@ -549,9 +554,22 @@ a:focus {
 .navbar-container nav .active {
   color: rgba(31, 32, 65, 0.5);
 }
+.signup {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+.signup h1 {
+  margin: 50px;
+}
 .signup .dives {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+.signup .dives .button {
+  padding: 10px 100px;
+  font-size: 20px;
 }
 .card-container {
   position: relative;
