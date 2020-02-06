@@ -57,16 +57,13 @@ export function Login({ login }) {
         >
           <Form className="form">
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
+            <div>
             <label>
               Username
-              <Field
-                type="text"
-                id="username"
-                name="username"
-                className="input"
-              />
+              <input type="text" placeholder="username" name="username" required />
               <ErrorMessage name="username" component="div" className="error" />
             </label>
+            </div>
 
             {/* <label>E-mail</label>
             <Field
@@ -75,7 +72,7 @@ export function Login({ login }) {
             name="email"
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
-
+            <div>
             <label>
               Password
               <Field
@@ -86,6 +83,7 @@ export function Login({ login }) {
               />
               <ErrorMessage name="password" component="div" className="error" />
             </label>
+            </div>
 
             {/* <label>Account type: </label>
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}

@@ -80,29 +80,32 @@ export default function FormBusiness() {
         >
           <Form className="form">
 
-          <label>Name</label>
-            <Field
-            type="text"
+          <label>Name
+            <input
+            type="Name"
             id="name"
-            name="name"
+            name="Name"
             className="input"/>
             <ErrorMessage name="name" component="div" className="error"/>
+            </label>
 
-            <label>Company Name</label>
+            <label>Company Name
             <Field
             type="text"
             id="username"
             name="username"
             className="input"/>
             <ErrorMessage name="username" component="div" className="error"/>
+            </label>
 
-            <label>Phone</label>
+            <label>Phone
             <Field
             type="tel"
             id="contact_number"
             name="contact_number"
             className="input"/>
             <ErrorMessage name="contact_number" component="div" className="error"/>
+            </label>
 
             {/* <label>E-mail</label>
             <Field
@@ -112,15 +115,16 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
 
-            <label>Password</label>
+            <label>Password
             <Field
             type="password"
             id="password"
             name="password"
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
+            </label>
 
-            <label>Repeat password</label>
+            <label>Repeat password
             <Field
             type="password"
             id="repeat_password"
@@ -128,6 +132,7 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="repeat_password" component="div" className="error"/>
             <button type="submit">Continue</button>
+            </label>
             
 
           </Form>
