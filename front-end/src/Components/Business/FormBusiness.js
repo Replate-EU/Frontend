@@ -84,35 +84,39 @@ export default function FormBusiness() {
           initialValues={initialState}
         >
           <Form className="form">
-            <label>Name</label>
+
+            <label>Name
             <Field type="text" id="name" name="name" className="input" />
             <ErrorMessage name="name" component="div" className="error" />
+            </label>
 
-            <label>Company Name</label>
+
+            <label>Company Name
             <Field
-              type="text"
-              id="username"
-              name="username"
-              className="input"
-            />
-            <ErrorMessage name="username" component="div" className="error" />
+            type="text"
+            id="username"
+            name="username"
+            className="input"/>
+            </label>
+            <ErrorMessage name="username" component="div" className="error"/>
 
-            <label>Phone</label>
+
+            <label>Phone
             <Field
-              type="tel"
-              id="contact_number"
-              name="contact_number"
-              className="input"
-            />
-            <ErrorMessage
-              name="contact_number"
-              component="div"
-              className="error"
-            />
+            type="tel"
+            id="contact_number"
+            name="contact_number"
+            className="input"/>
+            </label>
+            <ErrorMessage name="contact_number" component="div" className="error"/>
 
-            <label>Address</label>
+          
+
+            <label>Address
             <Field type="text" id="address" name="address" className="input" />
+            </label>
             <ErrorMessage name="address" component="div" className="error" />
+
 
             {/* <label>E-mail</label>
             <Field
@@ -122,28 +126,32 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
 
-            <label>Password</label>
+            <label>Password
             <Field
-              type="password"
-              id="password"
-              name="password"
-              className="input"
-            />
-            <ErrorMessage name="password" component="div" className="error" />
+            type="password"
+            id="password"
+            name="password"
+            className="input"/>
+            </label>
+            <ErrorMessage name="password" component="div" className="error"/>
+           
 
-            <label>Repeat password</label>
+            <label>Repeat password
             <Field
               type="password"
               id="repeat_password"
               name="repeat_password"
               className="input"
             />
+            </label>
+    
             <ErrorMessage
               name="repeat_password"
               component="div"
               className="error"
             />
             <button type="submit">Continue</button>
+
           </Form>
         </Formik>
       </Column>

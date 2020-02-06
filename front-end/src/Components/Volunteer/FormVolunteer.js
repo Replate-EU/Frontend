@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, label } from 'formik';
 import * as Yup from 'yup';
 import axiosWithAuth from '../../auth/axiosWithAuth';
 
@@ -79,29 +79,38 @@ export default function FormBusiness() {
         initialValues={initialState}
         >
           <Form className="form">
-          <label>Name</label>
+          <div>
+          <label>Name
             <Field
             type="text"
             id="name"
             name="name"
             className="input"/>
             <ErrorMessage name="name" component="div" className="error"/>
-
-            <label>Username</label>
+            </label>
+            </div>
+            
+            <div>
+            <label>Username
             <Field
             type="text"
             id="username"
             name="username"
             className="input"/>
             <ErrorMessage name="username" component="div" className="error"/>
+            </label>
+            </div>
 
-            <label>Phone</label>
+            <div>
+            <label>Phone
             <Field
             type="tel"
             id="contact_number"
             name="contact_number"
             className="input"/>
             <ErrorMessage name="contact_number" component="div" className="error"/>
+            </label>
+            </div>
 
             {/* <label>E-mail</label>
             <Field
@@ -110,22 +119,27 @@ export default function FormBusiness() {
             name="email"
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
-
-            <label>Password</label>
+            <div>
+            <label>Password
             <Field
             type="password"
             id="password"
             name="password"
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
-
-            <label>Repeat password</label>
+            </label>
+            </div>
+            
+            <div>
+            <label>Repeat password
             <Field
             type="password"
             id="repeat_password"
             name="repeat_password"
             className="input"/>
             <ErrorMessage name="repeat_password" component="div" className="error"/>
+            </label>
+            </div>
 
             <button type="submit">Continue</button>
 

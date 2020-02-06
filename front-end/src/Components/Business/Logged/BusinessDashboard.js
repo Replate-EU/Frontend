@@ -40,25 +40,34 @@ export function BusinessDashboard({
         initialValues={initialState}
       >
         <Form className="form">
-          <label>Type</label>
+          <div>
+          <label>Type
           <Field
             type="text"
             id="food_type"
             name="food_type"
-            className="input"
-          />
+            className="input"/>
           <ErrorMessage name="food_type" component="div" className="error" />
-          <label>Preferred time</label>
+          </label>
+          </div>
+
+          <div>
+          <label>Preferred time
           <Field
             type="text"
             id="pickup_time"
             name="pickup_time"
-            className="input"
-          />
-          <ErrorMessage name="pickup_time" component="div" className="error" />
-          <label>Quantity</label>
+            className="input" />
+           <ErrorMessage name="pickup_time" component="div" className="error" />
+           </label>
+          </div>
+
+          <div>
+          <label>Quantity
           <Field type="text" id="quantity" name="quantity" className="input" />
           <ErrorMessage name="quantity" component="div" className="error" />
+          </label>
+          </div>
           <button type="submit">create new pickup</button>
         </Form>
       </Formik>
