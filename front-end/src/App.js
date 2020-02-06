@@ -4,7 +4,7 @@ import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux actions
-import { checkToken } from "./state/actionCreators";
+import { checkToken, logout } from "./state/actionCreators";
 
 //styles
 import "./CSS/App.css";
@@ -22,7 +22,7 @@ import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 
-function App({ appState, user, checkToken }) {
+function App({ appState, user, checkToken, logout }) {
   useEffect(() => {
     if (!appState) {
       checkToken();
@@ -30,15 +30,7 @@ function App({ appState, user, checkToken }) {
   }, []);
   return (
     <div className="App">
-      
-     
-        <nav className="NavBar">
-          <Modal />
-          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
-          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
-          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
-          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
-        </nav>
+      <Navbar appState={appState} user={user} logout={logout} />
       <Container>
         <Switch>
           <Route exact path="/">
@@ -65,7 +57,6 @@ function App({ appState, user, checkToken }) {
           </Route>
         </Switch>
       </Container>
-      
     </div>
   );
 }
@@ -77,4 +68,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { checkToken })(App);
+export default connect(mapStateToProps, { checkToken, logout })(App);
