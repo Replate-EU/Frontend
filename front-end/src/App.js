@@ -17,7 +17,6 @@ import Login from "./Components/Login";
 import Modal from "./Components/Modal/Modal";
 import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
-import { Container, Borders } from "./Components/styled";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
@@ -39,7 +38,7 @@ function App({ appState, user, checkToken }) {
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
         </nav>
-      <Container>
+      <div className="container">
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -64,7 +63,7 @@ function App({ appState, user, checkToken }) {
             <VolunteerPickups />
           </Route>
         </Switch>
-      </Container>
+      </div>
       
     </div>
   );

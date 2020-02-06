@@ -1,5 +1,4 @@
 import React from 'react';
-import { Pickup, Button2 } from '../../styled';
 import edit from '../../../icons/edit.png'
 import close from '../../../icons/edit.png'
 

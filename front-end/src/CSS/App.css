@@ -448,6 +448,13 @@ li {
   font-size: 14px;
   line-height: 24px;
 }
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
 .button-big {
   max-width: 320px;
   width: 100%;
