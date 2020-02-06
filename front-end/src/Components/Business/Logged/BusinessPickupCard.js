@@ -5,7 +5,7 @@ import close from '../../../icons/edit.png'
 
 export default function BusinessPickupCard({pickup, update, delete}) {
     return(
-        <Pickup>
+        <div className="pickups">
             <div>
                 <a onClick={}><img src={edit}/></a>
                 <a onClick={}><img src={close}/></a>
@@ -16,6 +16,6 @@ export default function BusinessPickupCard({pickup, update, delete}) {
             <h3>Preferred pickup time: {props.pickup.pickup_time}</h3>
              <h3>Brand: {props.pickup.business_id}</h3> {/* business_id.name */}
              <Button2 onClick={addToList}>ACCEPT</Button2>
-        </Pickup>
+        </div>
     )
 }
