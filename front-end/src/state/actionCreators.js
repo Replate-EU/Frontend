@@ -1,4 +1,3 @@
-
 import axios from "../auth/axiosWithAuth";
 import * as types from "./actionTypes";
 
@@ -6,14 +5,23 @@ import * as types from "./actionTypes";
 const action = (type, payload) => ({ type, payload });
 
 //if login successfull, dispatch LOGIN_SUCCESS, else set login form error to error response
-export const login = (credentials, setLoginError) => async dispatch => {
+export const login = (credentials, history) => async dispatch => {
   try {
     const response = await axios().post("/api/auth/login", credentials);
-    const { token, user, account_details } = response.data;
+    const { token, user } = response.data;
+    console.log(response.data);
+
+    history.push(`/${user.user_type}/dashboard`);
     localStorage.setItem("token", token);
-    dispatch(action(types.LOGIN_SUCCESS, { user, token, account_details }));
+    dispatch(
+      action(types.LOGIN_SUCCESS, {
+        user,
+        token,
+        account_details: user.account_details
+      })
+    );
   } catch (error) {
-    setLoginError(error);
+    console.debug(error);
   }
 };
 
@@ -52,14 +60,20 @@ export const getAvailablePickups = () => async dispatch => {
 
 //takes in pickup object without id and with claimed_by set to userId
 export const acceptPickup = pickupData => async dispatch => {
-  const response = await axios.put(`/api/pickups/${pickupData.id}`, pickupData);
+  const response = await axios().put(
+    `/api/pickups/${pickupData.id}`,
+    pickupData
+  );
   const updatedPickup = response.data;
   dispatch(action(types.ACCEPTED_PICKUP, updatedPickup));
 };
 
 export const abandonPickup = pickupData => async dispatch => {
   //pikcup object as payload
-  const response = await axios.put(`/api/pickups/${pickupData.id}`, pickupData);
+  const response = await axios().put(
+    `/api/pickups/${pickupData.id}`,
+    pickupData
+  );
   const updatedPickup = response.data;
   dispatch(action(types.ABANDONED_PICKUP, updatedPickup));
 };
@@ -68,21 +82,21 @@ export const getAcceptedPickups = () => async dispatch => {
   //array of pickups as payload
   const response = await axios().get("/api/pickups/me");
   const acceptedPickups = response.data;
-  dispatch(action(types.GET_ACCEPTED_PICKUPS), acceptedPickups);
+  dispatch(action(types.GET_ACCEPTED_PICKUPS, acceptedPickups));
 };
 
 export const getListedPickups = () => async dispatch => {
   //array of pickups as payload
   const response = await axios().get("/api/pickups/me");
   const listedPickups = response.data;
-  dispatch(action(types.GET_LISTED_PICKUPS), listedPickups);
+  dispatch(action(types.GET_LISTED_PICKUPS, listedPickups));
 };
 
 export const submitPickup = pickupData => async dispatch => {
   //new pickup object as a payload
   const response = await axios().post("/api/pickups", pickupData);
   const newPickup = response.data;
-  dispatch(action(types.SUBMITTED_PICKUP), newPickup);
+  dispatch(action(types.SUBMITTED_PICKUP, newPickup));
 };
 
 export const editPickup = pickupData => async dispatch => {

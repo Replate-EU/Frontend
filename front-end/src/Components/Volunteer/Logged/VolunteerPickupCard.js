@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Pickup, Button2 } from '../../styled';
 
