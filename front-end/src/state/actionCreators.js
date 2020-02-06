@@ -47,9 +47,10 @@ export const register = userData => async dispatch => {
 };
 
 //logoout
-export const logout = () => dispatch => {
+export const logout = history => dispatch => {
   localStorage.removeItem("token");
   dispatch(action(types.LOG_OUT));
+  history.push("/login");
 };
 
 export const getAvailablePickups = () => async dispatch => {

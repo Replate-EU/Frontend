@@ -20,6 +20,7 @@ import SignUp from "./Components/SignUp";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
+import RestrictedRoute from "./auth/restrictedRoute";
 
 function App({ appState, user, checkToken, logout }) {
   useEffect(() => {
@@ -32,7 +33,8 @@ function App({ appState, user, checkToken, logout }) {
       <Navbar appState={appState} user={user} logout={logout} />
       
       <div className="container">
-     
+        
+
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -46,18 +48,17 @@ function App({ appState, user, checkToken, logout }) {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/business/dashboard">
+          <RestrictedRoute exact path="/business/dashboard">
             <BusinessDashboard />
-          </Route>
-          <Route exact path="/volunteer/dashboard">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/dashboard">
             <VolunteerDashboard />
-          </Route>
-          <Route exact path="/volunteer/pickups">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/pickups">
             <VolunteerPickups />
-          </Route>
+          </RestrictedRoute>
         </Switch>
-      
-    </div>
+      </div>
     </div>
   );
 }
