@@ -554,9 +554,22 @@ a:focus {
 .navbar-container nav .active {
   color: rgba(31, 32, 65, 0.5);
 }
+.signup {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+.signup h1 {
+  margin: 50px;
+}
 .signup .dives {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+.signup .dives .button {
+  padding: 10px 100px;
+  font-size: 20px;
 }
 .card-container {
   position: relative;
