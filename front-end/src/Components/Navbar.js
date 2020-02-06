@@ -55,3 +55,11 @@ export default function Navbar({ appState, user, logout }) {
     }
   }
 }
+
+{/* <nav className="NavBar">
+          <Modal />
+          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> 
+          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink>
+          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink>
+          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> 
+        </nav> */}

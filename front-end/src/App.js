@@ -29,8 +29,11 @@ function App({ appState, user, checkToken, logout }) {
   }, []);
   return (
     <div className="App">
+
+      <div className="container">
+
       <Navbar appState={appState} user={user} logout={logout} />
-      <Container>
+      
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -54,7 +57,7 @@ function App({ appState, user, checkToken, logout }) {
             <VolunteerPickups />
           </Route>
         </Switch>
-      </Container>
+      
     </div>
   );
 }
