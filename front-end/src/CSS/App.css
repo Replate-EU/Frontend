@@ -482,6 +482,7 @@ a:focus {
   color: white;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 .button::before {
   position: absolute;
@@ -499,7 +500,7 @@ a:focus {
 .button:hover::before {
   opacity: 1;
 }
-.navbar-container nav {
+.navbar-container nav ul {
   display: flex;
   justify-content: space-evenly;
   align-items: center;

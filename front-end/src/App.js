@@ -4,7 +4,7 @@ import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux actions
-import { checkToken } from "./state/actionCreators";
+import { checkToken, logout } from "./state/actionCreators";
 
 //styles
 import "./CSS/App.css";
@@ -21,7 +21,7 @@ import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 
-function App({ appState, user, checkToken }) {
+function App({ appState, user, checkToken, logout }) {
   useEffect(() => {
     if (!appState) {
       checkToken();
@@ -29,10 +29,11 @@ function App({ appState, user, checkToken }) {
   }, []);
   return (
     <div className="App">
-      
-     
-        <Navbar />
+
       <div className="container">
+
+      <Navbar appState={appState} user={user} logout={logout} />
+      
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -43,7 +44,6 @@ function App({ appState, user, checkToken }) {
           <Route exact path="/volunteer">
             <FormVolunteer />
           </Route>
-
           <Route exact path="/login">
             <Login />
           </Route>
@@ -57,8 +57,8 @@ function App({ appState, user, checkToken }) {
             <VolunteerPickups />
           </Route>
         </Switch>
-      </div>
       
+    </div>
     </div>
   );
 }
@@ -70,4 +70,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { checkToken })(App);
+export default connect(mapStateToProps, { checkToken, logout })(App);
