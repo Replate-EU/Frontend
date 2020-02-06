@@ -7,7 +7,6 @@ import axiosWithAuth from "../auth/axiosWithAuth";
 import { login } from "../state/actionCreators";
 import { connect } from "react-redux";
 
-
 const Container = styled.div`
   display: flex;
 `;
@@ -29,32 +28,14 @@ export function Login({ login }) {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('please enter your name'),
-    phone: Yup.string().required('please enter your phone number'),
-    password: Yup.string().required('please enter a password'),
-    repeat_password: Yup.string().required( 'please enter the same password')
+    name: Yup.string().required("please enter your name"),
+    // phone: Yup.string().required("please enter your phone number"),
+    password: Yup.string().required("please enter a password")
+    // repeat_password: Yup.string().required("please enter the same password")
   });
 
   function handleSubmit(values, actions) {
-    // console.log(values);
     login(values, history);
-/*     if (!type) {
-      values.user_type = "business";
-    }
-    // console.log(values.user_type);
-
-    axiosWithAuth()
-      .post("/api/auth/login", values)
-      .then(res => {
-        console.log(res);
-        // res.body.token;
-        localStorage.setItem("token", res.data.token);
-        //should work, we'll see when api is posted
-        history.push(`/${res.data.user_type}/dashboard`);
-      })
-      .catch(err => {
-        console.log(err);
-      }); */
   }
 
   function handleType() {
@@ -71,19 +52,21 @@ export function Login({ login }) {
         <p>Log to Your Account</p>
         <Formik
           onSubmit={handleSubmit}
-          validationSchema={validationSchema}
+          // validationSchema={validationSchema}
           initialValues={initialState}
         >
           <Form className="form">
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
-            <label>Username</label>
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              className="input"
-            />
-            <ErrorMessage name="username" component="div" className="error" />
+            <label>
+              Username
+              <Field
+                type="text"
+                id="username"
+                name="username"
+                className="input"
+              />
+              <ErrorMessage name="username" component="div" className="error" />
+            </label>
 
             {/* <label>E-mail</label>
             <Field
@@ -93,21 +76,25 @@ export function Login({ login }) {
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
 
-            <label>Password</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              className="input"
-            />
-            <ErrorMessage name="password" component="div" className="error" />
+            <label>
+              Password
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                className="input"
+              />
+              <ErrorMessage name="password" component="div" className="error" />
+            </label>
 
             {/* <label>Account type: </label>
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
 
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
 
-            <button type="submit">LOGIN</button>
+            <button className="button button-big" id="button" type="submit">
+              LOGIN
+            </button>
           </Form>
         </Formik>
       </Column>
