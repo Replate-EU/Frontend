@@ -455,6 +455,10 @@ li {
   align-items: center;
   min-height: 500px;
 }
+button:focus,
+a:focus {
+  outline: none;
+}
 .button-big {
   max-width: 320px;
   width: 100%;
@@ -478,6 +482,7 @@ li {
   color: white;
   position: relative;
   z-index: 1;
+  cursor: pointer;
 }
 .button::before {
   position: absolute;
@@ -495,29 +500,53 @@ li {
 .button:hover::before {
   opacity: 1;
 }
-.NavBar {
+.navbar-container nav ul {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 10px;
 }
-.NavBar a {
+.navbar-container nav a {
   text-decoration: none;
   font-weight: bold;
-  color: rgba(31, 32, 65, 0.5);
+  color: linear-gradient(180deg, #bc9cff 0%, #8BA4F9 100%);
   padding: 5px;
 }
-.NavBar button {
-  background: white;
-  border: 2px solid rgba(31, 32, 65, 0.5);
-  border-radius: 22px;
-  padding: 10px;
+.navbar-container nav button {
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
   font-weight: bold;
-  color: rgba(31, 32, 65, 0.5);
-  cursor: pointer;
+  color: #1f2041;
+  background: linear-gradient(180deg, #bc9cff 0%, #8BA4F9 100%);
+  border-radius: 22px;
+  border: 1px solid #bc9cff;
+  color: white;
+  position: relative;
+  z-index: 1;
 }
-.NavBar .active {
-  color: rgba(80, 83, 169, 0.5);
+.navbar-container nav button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 22px;
+  background-image: linear-gradient(180deg, #8850ff 0%, #426bf5 100%);
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+.navbar-container nav button:hover::before {
+  opacity: 1;
+}
+.navbar-container nav .active {
+  color: rgba(31, 32, 65, 0.5);
+}
+.signup .dives {
+  display: flex;
+  justify-content: space-around;
 }
 .card-container {
   max-width: 380px;
@@ -530,6 +559,11 @@ li {
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+.presentational-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 .pickups {
   display: flex;
   flex-flow: column;
@@ -538,7 +572,6 @@ li {
   background: white;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   color: rgba(31, 32, 65, 0.7);
-  width: 30%;
   margin: 10px;
 }
 .pickups p {
