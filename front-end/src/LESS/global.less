@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url(../fonts/Montserrat/Montserrat-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url(../fonts/Quicksand/Quicksand-VariableFont_wght.ttf) format("truetype");
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: Quicksand, sans-serif;
+  font-size: 24px;
+  .header-text();
+}
+h2 {
+  font-family: Quicksand, sans-serif;
+  font-size: 19px;
+  .header-text();
+}
+h3 {
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+  .header-text();
+}
+
+p,
+a,
+li {
+  .plain-text();
+}
