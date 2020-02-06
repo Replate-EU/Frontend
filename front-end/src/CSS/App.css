@@ -601,7 +601,13 @@ a:focus {
   margin: 5px;
   cursor: pointer;
 }
+form.general-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
 input.general-input {
+  position: absolute;
   border-radius: 3px;
   width: 50%;
   margin: 0 auto;
@@ -625,7 +631,7 @@ input:active {
 button.colored-btn {
   background-image: linear-gradient(to right, #bc9cff, #764ba2, #6b8dd6, #8e37d7);
   box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
-  width: 100px;
+  min-width: 100px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
@@ -652,17 +658,55 @@ button.colored-btn:focus {
 .modal-container {
   position: fixed;
   margin: auto auto;
-  width: 500px;
-  height: 500px;
-  background: white;
+  max-width: 500px;
+  max-height: 500px;
+  height: 100%;
+  background: #eaeaf5;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: -2rem 2rem 2rem #a7a0a0;
   opacity: 1;
   visibility: visible;
-  z-index: 99999;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+.modal-container .modalCard {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-container .modalCard .account-form {
+  display: flex;
+  align-items: center;
+}
+.modal-container .modalCard .account-form input {
+  width: 100%;
+}
+.modal-container .modalCard .account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.modal-container .modalCard .account h2 {
+  color: #6fcf97;
+  margin-bottom: 5%;
+}
+.modal-container .modalCard .account h3 {
+  margin-bottom: 5%;
+}
+.modal-container .modalCard .account h3:last-of-type {
+  margin: 0 auto;
 }

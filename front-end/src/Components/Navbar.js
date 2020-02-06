@@ -36,6 +36,9 @@ export default function Navbar({ appState, user, logout }) {
                 <NavLink to="/volunteer/pickups" replace>Available pickups</NavLink>
 
               </li>
+              <li>
+              <Modal />
+            </li>
             </ul>
           </nav>
         </section>
