@@ -1,11 +1,11 @@
 import React from 'react';
 import edit from '../../../icons/edit.png'
-import close from '../../../icons/edit.png'
+import close from '../../../icons/close.png'
 
 export default function BusinessPickupCard({pickup, update, delete}) {
     return(
         <div className="pickups">
-            <div>
+            <div className="business-card-container">
                 <a onClick={}><img src={edit}/></a>
                 <a onClick={}><img src={close}/></a>
             </div>

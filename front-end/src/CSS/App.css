@@ -551,6 +551,15 @@ li {
   color: white;
   cursor: pointer;
 }
+.business-card-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.business-card-container a {
+  margin: 5px;
+  cursor: pointer;
+}
 input.general-input {
   border-radius: 3px;
   width: 50%;
