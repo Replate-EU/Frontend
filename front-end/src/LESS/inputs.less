@@ -1,7 +1,16 @@
 @main-color: #bc9cff;
 
+form {
+  &.general-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+}
+
 input {
   &.general-input {
+    position: absolute;
     border-radius: 3px;
     width: 50%;
     margin: 0 auto;
@@ -35,7 +44,8 @@ button {
       #8e37d7
     );
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
-    width: 100px;
+    // width: 100px;
+    min-width: 100px;
     font-size: 16px;
     font-weight: 600;
     color: #fff;

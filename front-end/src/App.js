@@ -1,10 +1,10 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, Link, NavLink } from "react-router-dom";
+import { Switch, Route, Link, NavLink, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux actions
-import { checkToken } from "./state/actionCreators";
+import { checkToken, logout } from "./state/actionCreators";
 
 //styles
 import "./CSS/App.css";
@@ -20,25 +20,25 @@ import SignUp from "./Components/SignUp";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
+import RestrictedRoute from "./auth/restrictedRoute";
+import logo from './icons/Logo.webp';
 
-function App({ appState, user, checkToken }) {
+function App({ appState, user, checkToken, logout }) {
+  const history = useHistory();
   useEffect(() => {
     if (!appState) {
-      checkToken();
+      checkToken(history);
     }
   }, []);
   return (
     <div className="App">
+
+      <img src={logo} className="logo"/>
+      <Navbar appState={appState} user={user} logout={logout} />
       
-     
-        <nav className="NavBar">
-          <Modal />
-          <NavLink exact to="/login" activeClassName="active" replace>LOGIN</NavLink> {/* if logged in, then display: none */}
-          <NavLink exact to="/volunteer/pickups" activeClassName="active" replace>PICKUPS</NavLink> {/* if not logged in, then display: none */}
-          <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
-          <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
-        </nav>
       <div className="container">
+        
+
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -49,22 +49,20 @@ function App({ appState, user, checkToken }) {
           <Route exact path="/volunteer">
             <FormVolunteer />
           </Route>
-
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/business/dashboard">
+          <RestrictedRoute exact path="/business/dashboard">
             <BusinessDashboard />
-          </Route>
-          <Route exact path="/volunteer/dashboard">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/dashboard">
             <VolunteerDashboard />
-          </Route>
-          <Route exact path="/volunteer/pickups">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/pickups">
             <VolunteerPickups />
-          </Route>
+          </RestrictedRoute>
         </Switch>
       </div>
-      
     </div>
   );
 }
@@ -76,4 +74,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { checkToken })(App);
+export default connect(mapStateToProps, { checkToken, logout })(App);

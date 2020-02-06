@@ -28,7 +28,7 @@ export function Login({ login }) {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("please enter your name"),
+    username: Yup.string().required("please enter your name"),
     // phone: Yup.string().required("please enter your phone number"),
     password: Yup.string().required("please enter a password")
     // repeat_password: Yup.string().required("please enter the same password")
@@ -52,7 +52,7 @@ export function Login({ login }) {
         <p>Log to Your Account</p>
         <Formik
           onSubmit={handleSubmit}
-          // validationSchema={validationSchema}
+          validationSchema={validationSchema}
           initialValues={initialState}
         >
           <Form className="form">
