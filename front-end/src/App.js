@@ -1,6 +1,6 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, Link, NavLink } from "react-router-dom";
+import { Switch, Route, Link, NavLink, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux actions
@@ -20,16 +20,22 @@ import SignUp from "./Components/SignUp";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
+import RestrictedRoute from "./auth/restrictedRoute";
 
 function App({ appState, user, checkToken, logout }) {
+  const history = useHistory();
   useEffect(() => {
     if (!appState) {
-      checkToken();
+      checkToken(history);
     }
   }, []);
   return (
     <div className="App">
       <Navbar appState={appState} user={user} logout={logout} />
+      
+      <div className="container">
+        
+
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -43,16 +49,17 @@ function App({ appState, user, checkToken, logout }) {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/business/dashboard">
+          <RestrictedRoute exact path="/business/dashboard">
             <BusinessDashboard />
-          </Route>
-          <Route exact path="/volunteer/dashboard">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/dashboard">
             <VolunteerDashboard />
-          </Route>
-          <Route exact path="/volunteer/pickups">
+          </RestrictedRoute>
+          <RestrictedRoute exact path="/volunteer/pickups">
             <VolunteerPickups />
-          </Route>
+          </RestrictedRoute>
         </Switch>
+      </div>
     </div>
   );
 }

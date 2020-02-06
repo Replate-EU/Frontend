@@ -43,6 +43,8 @@ export function tokenReducer(token = initialToken, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
       return action.payload.token;
+    case types.LOG_OUT:
+      return null;
     case types.TOKEN_CHECK_FAILURE:
       return null;
     case types.TOKEN_CHECK_SUCCESS:
@@ -104,7 +106,7 @@ export function listedPickupsReducer(
         pickup.id === action.payload.id ? action.payload : pickup
       );
     case types.DELETED_PICKUP:
-      return listedPickups.filter(pickup => pickup.id !== action.payload.id);
+      return listedPickups.filter(pickup => pickup.id !== action.payload);
     default:
       return listedPickups;
   }
