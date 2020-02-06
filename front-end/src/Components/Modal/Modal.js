@@ -9,22 +9,6 @@ export default function Modal() {
   }
 
   const modalNode = useRef();
-  // console.log(modalNode);
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClick);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClick);
-  //   };
-  // }, []);
-
-  // function handleClick(e) {
-  //   console.log(e);
-  //   if (modalNode.current.contains(e.target)) {
-  //     return;
-  //   }
-  //   showModal();
-  // }
 
   return (
     <div className>
@@ -38,7 +22,11 @@ export default function Modal() {
       </button>
       {modal ? (
         <div className="modal-container" ref={modalNode}>
-          <AccountDetails showModal={showModal} modalNode={modalNode} showModal={showModal}/>
+          <AccountDetails
+            showModal={showModal}
+            modalNode={modalNode}
+            showModal={showModal}
+          />
         </div>
       ) : null}
     </div>

@@ -1,8 +1,9 @@
 .modal-container {
   position: fixed;
   margin: auto auto;
-  width: 500px;
-  height: 500px;
+  max-width: 500px;
+  max-height: 500px;
+  height: 100%;
   background: lighten(#1f2041, 75%);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -11,7 +12,7 @@
   box-shadow: -2rem 2rem 2rem rgb(167, 160, 160);
   opacity: 1;
   visibility: visible;
-  z-index: 2;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
@@ -23,15 +24,40 @@
   align-items: center;
   padding: 10px;
 
-  .account {
-    height: 100%;
-    h2 {
-      margin: 30% auto;
-      color: #6fcf97;
-      // margin-right: 100px;
+  .modalCard {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .account-form {
+      display: flex;
+      align-items: center;
+      input {
+        width: 100%;
+      }
     }
-    h3 {
-      margin: 15% auto;
+
+    .account {
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      h2 {
+        color: #6fcf97;
+        // margin-right: 100px;
+        margin-bottom: 5%;
+      }
+      h3 {
+        margin-bottom: 5%;
+
+        &:last-of-type {
+          margin: 0 auto;
+        }
+      }
     }
   }
 }

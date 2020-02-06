@@ -18,14 +18,15 @@ export function AccountDetails({
   modalNode,
   showModal
 }) {
+  // delete user.id;
+  // delete user.user_type;
   const [details, setDetails] = useState(user);
-
+  console.log(user);
   const [update, setUpdate] = useState({});
   const [edit, setEdit] = useState(false);
 
-
   useEffect(() => {
-    console.log(modalNode)
+    console.log(modalNode);
     document.addEventListener("mousedown", handleClick);
     return () => {
       document.removeEventListener("mousedown", handleClick);
@@ -35,7 +36,6 @@ export function AccountDetails({
   function handleClick(e) {
     if (modalNode.current.contains(e.target)) {
       return;
-    
     }
     showModal();
   }
@@ -48,6 +48,8 @@ export function AccountDetails({
   function handleSubmit(event) {
     event.preventDefault();
     const updateUser = { ...details, ...update };
+    delete updateUser.id;
+    delete updateUser.user_type;
     axiosWithAuth()
       .put("/api/users", updateUser)
       .then(res => {
