@@ -106,7 +106,7 @@ export function listedPickupsReducer(
         pickup.id === action.payload.id ? action.payload : pickup
       );
     case types.DELETED_PICKUP:
-      return listedPickups.filter(pickup => pickup.id !== action.payload.id);
+      return listedPickups.filter(pickup => pickup.id !== action.payload);
     default:
       return listedPickups;
   }

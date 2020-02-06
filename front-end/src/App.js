@@ -1,6 +1,6 @@
 //dependencies
 import React, { useEffect } from "react";
-import { Switch, Route, Link, NavLink } from "react-router-dom";
+import { Switch, Route, Link, NavLink, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Redux actions
@@ -23,9 +23,10 @@ import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 import RestrictedRoute from "./auth/restrictedRoute";
 
 function App({ appState, user, checkToken, logout }) {
+  const history = useHistory();
   useEffect(() => {
     if (!appState) {
-      checkToken();
+      checkToken(history);
     }
   }, []);
   return (

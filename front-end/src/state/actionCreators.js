@@ -25,13 +25,14 @@ export const login = (credentials, history) => async dispatch => {
   }
 };
 
-export const checkToken = () => async dispatch => {
+export const checkToken = history => async dispatch => {
   try {
     const response = await axios().get("/api/auth");
     const { account_details } = response.data;
     const user = response.data;
     delete user.account_details;
     dispatch(action(types.TOKEN_CHECK_SUCCESS, { user, account_details }));
+    history.push(`/${user.user_type}/dashboard`);
   } catch (error) {
     console.debug(error);
     localStorage.removeItem("token");
@@ -107,6 +108,8 @@ export const editPickup = pickupData => async dispatch => {
 };
 
 export const deletePickup = id => async dispatch => {
+  console.log(id);
+
   const response = await axios().delete(`/api/pickups/${id}`);
   const deleted = response.data;
   dispatch(action(types.DELETED_PICKUP, id));
