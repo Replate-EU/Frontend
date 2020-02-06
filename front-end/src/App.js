@@ -15,12 +15,12 @@ import FormBusiness from "./Components/Business/FormBusiness";
 import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
 import Modal from "./Components/Modal/Modal";
+import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
 import { Container, Borders } from "./Components/styled";
-import BusinessDashboard from './Components/Business/Logged/BusinessDashboard';
-import VolunteerDashboard from './Components/Volunteer/Logged/VolunteerDashboard';
-import VolunteerPickups from './Components/Volunteer/Logged/VolunteerPickups';
-
+import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
+import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
+import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 
 function App({ appState, user, checkToken }) {
   useEffect(() => {
@@ -39,31 +39,30 @@ function App({ appState, user, checkToken }) {
           <NavLink exact to="/volunteer/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when volunteer logged in*/}
           <NavLink exact to="/business/dashboard" activeClassName="active" replace>DASHBOARD</NavLink> {/*display only when business logged in*/}
         </nav>
-    
       <Container>
         <Switch>
           <Route exact path="/">
-            <SignUp/>
+            <SignUp />
           </Route>
-      <Route exact path="/business">
-        <FormBusiness />
-      </Route>
-      <Route exact path="/volunteer">
-        <FormVolunteer />
-      </Route>
-      
-      <Route exact path="/login">
-        <Login />
-      </Route>
-      <Route exact path="/business/dashboard">
-        <BusinessDashboard />
-      </Route>
-      <Route exact path="/volunteer/dashboard">
-        <VolunteerDashboard />
-      </Route>
-      <Route exact path="/volunteer/pickups">
-        <VolunteerPickups />
-      </Route>
+          <Route exact path="/business">
+            <FormBusiness />
+          </Route>
+          <Route exact path="/volunteer">
+            <FormVolunteer />
+          </Route>
+
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/business/dashboard">
+            <BusinessDashboard />
+          </Route>
+          <Route exact path="/volunteer/dashboard">
+            <VolunteerDashboard />
+          </Route>
+          <Route exact path="/volunteer/pickups">
+            <VolunteerPickups />
+          </Route>
         </Switch>
       </Container>
       
