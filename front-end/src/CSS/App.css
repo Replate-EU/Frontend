@@ -505,6 +505,7 @@ a:focus {
 }
 .navbar-container nav {
   display: flex;
+  box-shadow: -2rem 1rem 2rem #a7a0a0;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
@@ -529,10 +530,8 @@ a:focus {
   font-size: 12px;
   font-weight: bold;
   color: #1f2041;
-  background: linear-gradient(180deg, #bc9cff 0%, #8BA4F9 100%);
-  border-radius: 22px;
-  border: 1px solid #bc9cff;
-  color: white;
+  border: none;
+  color: #acabab;
   position: relative;
   z-index: 1;
 }
@@ -549,8 +548,8 @@ a:focus {
   transition: opacity 0.5s linear;
   opacity: 0;
 }
-.navbar-container nav button:hover::before {
-  opacity: 1;
+.navbar-container nav button:hover {
+  border-bottom: 1px solid black;
 }
 .navbar-container nav .active {
   color: rgba(31, 32, 65, 0.5);
