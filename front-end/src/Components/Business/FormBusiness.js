@@ -23,7 +23,7 @@ export default function FormBusiness() {
     const validationSchema = Yup.object().shape({
         name: Yup.string().required('please enter your company name'),
         username: Yup.string().required('please enter your company name'),
-        contact_number: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+        contact_number: Yup.string().matches(phoneRegExp, 'phone number is not valid').required('please enter a phone number'),
         // email: Yup.string().email('put a valid email pls').required('please enter your email'),
         password: Yup.string().required('please enter a password'),
         repeat_password: Yup.string().required('please enter the same password')

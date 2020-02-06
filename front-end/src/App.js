@@ -30,8 +30,11 @@ function App({ appState, user, checkToken, logout }) {
   }, []);
   return (
     <div className="App">
+      <Navbar appState={appState} user={user} logout={logout} />
+      
       <div className="container">
-        <Navbar appState={appState} user={user} logout={logout} />
+        
+
         <Switch>
           <Route exact path="/">
             <SignUp />
@@ -56,7 +59,6 @@ function App({ appState, user, checkToken, logout }) {
           </RestrictedRoute>
         </Switch>
       </div>
-    </div>
     </div>
   );
 }
