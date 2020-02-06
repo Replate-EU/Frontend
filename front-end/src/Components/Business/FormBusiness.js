@@ -79,7 +79,7 @@ export default function FormBusiness() {
         initialValues={initialState}
         >
           <Form className="form">
-
+          <div>
           <label>Name
             <input
             type="Name"
@@ -88,7 +88,9 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="name" component="div" className="error"/>
             </label>
+            </div>
 
+            <div>
             <label>Company Name
             <Field
             type="text"
@@ -97,7 +99,8 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="username" component="div" className="error"/>
             </label>
-
+            
+            <div>
             <label>Phone
             <Field
             type="tel"
@@ -106,7 +109,7 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="contact_number" component="div" className="error"/>
             </label>
-
+            </div>
             {/* <label>E-mail</label>
             <Field
             type="text"
@@ -114,7 +117,7 @@ export default function FormBusiness() {
             name="email"
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
-
+            <div>
             <label>Password
             <Field
             type="password"
@@ -123,7 +126,9 @@ export default function FormBusiness() {
             className="input"/>
             <ErrorMessage name="password" component="div" className="error"/>
             </label>
+           </div>
 
+           <div>
             <label>Repeat password
             <Field
             type="password"
@@ -131,10 +136,11 @@ export default function FormBusiness() {
             name="repeat_password"
             className="input"/>
             <ErrorMessage name="repeat_password" component="div" className="error"/>
-            <button type="submit">Continue</button>
-            </label>
-            
+           </label>
+            </div>
 
+            <button type="submit">Continue</button>
+</div>
           </Form>
         </Formik>
         </Column>
