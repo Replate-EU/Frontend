@@ -30,7 +30,7 @@ export function Login({ login }) {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("please enter your name"),
     // phone: Yup.string().required("please enter your phone number"),
-    password: Yup.string().required("please enter a password"),
+    password: Yup.string().required("please enter a password")
     // repeat_password: Yup.string().required("please enter the same password")
   });
 
@@ -57,14 +57,16 @@ export function Login({ login }) {
         >
           <Form className="form">
             {/* <label>{type ? 'Username' : 'Company Name' }</label> */}
-            <label>Username</label>
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              className="input"
-            />
-            <ErrorMessage name="username" component="div" className="error" />
+            <label>
+              Username
+              <Field
+                type="text"
+                id="username"
+                name="username"
+                className="input"
+              />
+              <ErrorMessage name="username" component="div" className="error" />
+            </label>
 
             {/* <label>E-mail</label>
             <Field
@@ -74,21 +76,25 @@ export function Login({ login }) {
             className="input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
 
-            <label>Password</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              className="input"
-            />
-            <ErrorMessage name="password" component="div" className="error" />
+            <label>
+              Password
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                className="input"
+              />
+              <ErrorMessage name="password" component="div" className="error" />
+            </label>
 
             {/* <label>Account type: </label>
             <button type="button" onClick={handleType}>{type ? 'VOLUNTEER' : 'BUSINESS' }</button> */}
 
             {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
 
-            <button type="submit">LOGIN</button>
+            <button className="button button-big" id="button" type="submit">
+              LOGIN
+            </button>
           </Form>
         </Formik>
       </Column>
