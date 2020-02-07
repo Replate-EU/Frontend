@@ -6,21 +6,38 @@
 @darkshadetouch: rgba(31, 32, 65, 0.05);
 @purple: #bc9cff;
 @green: #6fcf97;
-@lapis:#66D2EA;
-@blue: #8BA4F9;
+@lapis: #66d2ea;
+@blue: #8ba4f9;
+@red: #C82333;
+@orange-red: #ff1414;
 
 //GRADIENTS
-@green-gradient:linear-gradient(180deg, @green 0%, @lapis 100%);
-@green-gradient-hover:linear-gradient(180deg, darken(@green, 15%) 0%, darken(@lapis, 15%) 100%);
-@purple-gradient:linear-gradient(180deg, @purple 0%, @blue 100%);
-@purple-gradient-hover:linear-gradient(180deg, darken(@purple, 15%) 0%, darken(@blue, 15%) 100%);
+@green-gradient: linear-gradient(180deg, @green 0%, @lapis 100%);
+@green-gradient-hover: linear-gradient(
+  180deg,
+  darken(@green, 15%) 0%,
+  darken(@lapis, 15%) 100%
+);
+@purple-gradient: linear-gradient(180deg, @purple 0%, @blue 100%);
+@purple-gradient-hover: linear-gradient(
+  180deg,
+  darken(@purple, 15%) 0%,
+  darken(@blue, 15%) 100%
+);
+@red-gradient: linear-gradient(180deg, @red 0%, @orange-red 100%);
+@red-gradient-hover: linear-gradient(
+  180deg,
+  darken(@red, 15%) 0%,
+  darken(@orange-red, 15%) 100%
+);
 
 //COLOR POINTERS
 @main-font-color: @darkshadebasic;
 @plain-text-color: @darkshadeheavy;
 @main-background-color: white;
+@nav-item-highlight: darken(@blue, 15%);
 
 //MEDIA QUERIES
-@tablet-big:  ~"(max-width: 1000px)";
-@tablet:  ~"(max-width: 800px)";
+@tablet-big: ~"(max-width: 1000px)";
+@tablet: ~"(max-width: 800px)";
 @mobile: ~"(max-width: 500px)";

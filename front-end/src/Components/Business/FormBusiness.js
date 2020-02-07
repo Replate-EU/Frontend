@@ -1,20 +1,8 @@
 import React from "react";
-import { Switch, Route, Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import axiosWithAuth from "../../auth/axiosWithAuth";
-
-const Container = styled.div`
-  display: flex;
-`;
-const Column = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 49%;
-`;
 
 export default function FormBusiness() {
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -58,7 +46,6 @@ export default function FormBusiness() {
     };
     delete allValues.repeat_password;
     // console.log(allValues);
-
     axiosWithAuth()
       .post("/api/auth/register", allValues)
       .then(res => {
@@ -71,90 +58,104 @@ export default function FormBusiness() {
   }
 
   return (
-    <Container>
-      <Column>
-        <h1>Donor Sign up</h1>
-        <p>Thanks for your interest</p>
-      </Column>
-      <Column>
-        <p>Create Your Account</p>
-        <Formik
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-          initialValues={initialState}
-        >
-          <Form className="form">
+    <Formik
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+      initialValues={initialState}
+    >
+      <Form className="form-container">
+        <h1 className="card--title">Donor Sign up</h1>
+        <label className="form--label">
+          <Field
+            type="text"
+            id="name"
+            name="name"
+            className="form--input"
+            required
+          />
+          <span className="input--label">Company Name</span>
+          <ErrorMessage name="name" component="div" className="error" />
+        </label>
 
-            <label>Name
-            <Field type="text" id="name" name="name" className="input" />
-            <ErrorMessage name="name" component="div" className="error" />
-            </label>
-
-
-            <label>Company Name
-            <Field
+        <label className="form--label">
+          <Field
+            required
             type="text"
             id="username"
             name="username"
-            className="input"/>
-            </label>
-            <ErrorMessage name="username" component="div" className="error"/>
+            className="form--input"
+          />
+          <span className="input--label">Username</span>
+          <ErrorMessage name="username" component="div" className="error" />
+        </label>
 
-
-            <label>Phone
-            <Field
+        <label className="form--label">
+          <Field
+            required
             type="tel"
             id="contact_number"
             name="contact_number"
-            className="input"/>
-            </label>
-            <ErrorMessage name="contact_number" component="div" className="error"/>
+            className="form--input"
+          />
+          <span className="input--label">Phone</span>
+          <ErrorMessage
+            name="contact_number"
+            component="div"
+            className="error"
+          />
+        </label>
 
-          
+        <label className="form--label">
+          <Field
+            required
+            type="text"
+            id="address"
+            name="address"
+            className="form--input"
+          />
+          <span className="input--label">Address</span>
+          <ErrorMessage name="address" component="div" className="error" />
+        </label>
 
-            <label>Address
-            <Field type="text" id="address" name="address" className="input" />
-            </label>
-            <ErrorMessage name="address" component="div" className="error" />
-
-
-            {/* <label>E-mail</label>
-            <Field
+        {/* <label className="form--label">E-mail</label>
+            <Field required
             type="text"
             id="email"
             name="email"
-            className="input"/>
+            className="form--input"/>
             <ErrorMessage name="email" component="div" className="error"/> */}
 
-            <label>Password
-            <Field
+        <label className="form--label">
+          <Field
+            required
             type="password"
             id="password"
             name="password"
-            className="input"/>
-            </label>
-            <ErrorMessage name="password" component="div" className="error"/>
-           
+            className="form--input"
+          />
+          <span className="input--label">Password</span>
+          <ErrorMessage name="password" component="div" className="error" />
+        </label>
 
-            <label>Repeat password
-            <Field
-              type="password"
-              id="repeat_password"
-              name="repeat_password"
-              className="input"
-            />
-            </label>
-    
-            <ErrorMessage
-              name="repeat_password"
-              component="div"
-              className="error"
-            />
-            <button type="submit">Continue</button>
-
-          </Form>
-        </Formik>
-      </Column>
-    </Container>
+        <label className="form--label">
+          <Field
+            required
+            type="password"
+            id="repeat_password"
+            name="repeat_password"
+            className="form--input"
+          />
+          <span className="input--label">Repeat password</span>
+          <ErrorMessage
+            name="repeat_password"
+            component="div"
+            className="error"
+          />
+        </label>
+        <button type="submit" className="button-primary button-big">
+          Continue
+        </button>
+      </Form>
+    </Formik>
   );
 }

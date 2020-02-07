@@ -11,29 +11,14 @@
   height: 44px;
 }
 
-.button {
-  .label();
-  background: @purple-gradient;
-  border-radius: 22px;
-  border: 1px solid @purple;
-  color: white;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  &::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 22px;
-    background-image: @purple-gradient-hover;
-    z-index: -1;
-    transition: opacity 0.5s linear;
-    opacity: 0;
-  }
-  &:hover::before {
-    opacity: 1;
-  }
+.button-primary {
+  .button(@purple-gradient, @purple-gradient-hover, @purple, white);
 }
+.button-secondary {
+  .button(@green-gradient, @green-gradient-hover, @green, white);
+}
+.button-danger {
+  .button(@red-gradient, @red-gradient-hover, @red, white);
+  border: none;
+}
+

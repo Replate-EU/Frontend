@@ -2,24 +2,25 @@ import React from "react";
 
 export default function Form(props) {
   return (
-    <div className="account-form">
-      <form onSubmit={e => props.handleSubmit(e)}>
-        <label>
-          Username:
-          <input
-            className="general-input"
-            type="text"
-            name="username"
-            value={props.username}
-            onChange={e => {
-              props.editDetails(e);
-            }}
-          />
-        </label>
-        {/* <label>
+    <form className="inner-form" onSubmit={e => props.handleSubmit(e)}>
+      <h1 className="card--title">Account details</h1>
+      <label className="form--label">
+        <input
+          required
+          className="form--input"
+          type="text"
+          name="username"
+          value={props.username}
+          onChange={e => {
+            props.editDetails(e);
+          }}
+        />
+        <span className="input--label">Username</span>
+      </label>
+      {/* <label className="form--label">
           Name:
-          <input
-            className="general-input"
+          <input required
+            className="form--input"
             type="text"
             name="name"
             value={props.name}
@@ -28,32 +29,35 @@ export default function Form(props) {
             }}
           />
         </label> */}
-        <label>
-          Contact:
-          <input
-            className="general-input"
-            type="text"
-            name="contact_number"
-            value={props.contact}
-            onChange={e => {
-              props.editDetails(e);
-            }}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            className="general-input"
-            type="password"
-            name="password"
-            value={props.password}
-            onChange={e => {
-              props.editDetails(e);
-            }}
-          />
-        </label>
-        <input type="submit" className="colored-btn" />
-      </form>
-    </div>
+      <label className="form--label">
+        <input
+          required
+          className="form--input"
+          type="text"
+          name="contact_number"
+          value={props.contact}
+          onChange={e => {
+            props.editDetails(e);
+          }}
+        />
+        <span className="input--label">Contact</span>
+      </label>
+      <label className="form--label">
+        <input
+          required
+          className="form--input"
+          type="password"
+          name="password"
+          value={props.password}
+          onChange={e => {
+            props.editDetails(e);
+          }}
+        />
+        <span className="input--label">Password</span>
+      </label>
+      <button type="submit" className="button-secondary button-small">
+        Submit
+      </button>
+    </form>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import edit from "../../../icons/edit.png";
 import close from "../../../icons/close.png";
-import moment from 'moment';
+import moment from "moment";
 
 export default function BusinessPickupCard({ pickup, update, remove }) {
   const [editing, setEditing] = useState(false);
@@ -38,24 +38,42 @@ export default function BusinessPickupCard({ pickup, update, remove }) {
             <img src={close} />
           </button>
         </div>
-        <form onChange={handleChange} onSubmit={handleSubmit}>
-          <label htmlFor="">
-            Type
-            <input type="text" name="food_type" value={pickupData.food_type} />
-          </label>
-          <label htmlFor="">
-            Quantity
+        <form
+          className="card-form"
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        >
+          <label className="form--label">
             <input
+              required
+              className="form--input"
+              type="text"
+              name="food_type"
+              value={pickupData.food_type}
+            />
+          <span className="input--label">Type</span>
+          </label>
+          <label className="form--label">
+            <input
+              required
+              className="form--input"
               type="text"
               name="pickup_time"
               value={pickupData.pickup_time}
             />
+            <span className="input--label">Pickup time</span>
           </label>
-          <label htmlFor="">
-            Pickup time
-            <input type="text" name="quantity" value={pickupData.quantity} />
+          <label className="form--label">
+            <input
+              required
+              className="form--input"
+              type="text"
+              name="quantity"
+              value={pickupData.quantity}
+            />
+            <span className="input--label">Quantity</span>
           </label>
-          <button type="submit">Submit changes</button>
+          <button className="button-secondary button-big"type="submit">Submit changes</button>
         </form>
       </div>
     );

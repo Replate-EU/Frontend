@@ -12,7 +12,7 @@ export default function Modal() {
 
   return (
     <div className>
-      <button
+      <button className="nav--button"
         onClick={e => {
           showModal();
         }}

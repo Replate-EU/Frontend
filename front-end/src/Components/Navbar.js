@@ -15,12 +15,12 @@ export default function Navbar({ appState, user, logout }) {
 
           <ul className="right-navbar">
             <li>
-              <NavLink to="/login" replace>
+              <NavLink className="nav--link" to="/login" replace>
                 Log in
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/" replace>
+              <NavLink className="nav--link" exact to="/" replace>
                 Register
               </NavLink>
             </li>
@@ -39,20 +39,26 @@ export default function Navbar({ appState, user, logout }) {
 
             <ul>
               <li>
-                <button onClick={() => logout(history)}>Log out</button>
-              </li>
-              <li>
-                <NavLink to="/volunteer/dashboard" replace>
+                <NavLink
+                  className="nav--link"
+                  to="/volunteer/dashboard"
+                  replace
+                >
                   Accepted pickups
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/volunteer/pickups" replace>
+                <NavLink className="nav--link" to="/volunteer/pickups" replace>
                   Available pickups
                 </NavLink>
               </li>
               <li>
                 <Modal />
+              </li>
+              <li>
+                <button className="nav--button" onClick={() => logout(history)}>
+                  Log out
+                </button>
               </li>
             </ul>
           </nav>
@@ -67,10 +73,12 @@ export default function Navbar({ appState, user, logout }) {
             </div>
             <ul>
               <li>
-                <button onClick={() => logout(history)}>Log out</button>
+                <button className="nav--button" onClick={() => logout(history)}>
+                  Log out
+                </button>
               </li>
               <li>
-                <NavLink to="/business/dashboard" replace>
+                <NavLink className="nav--link" to="/business/dashboard" replace>
                   Listed pickups
                 </NavLink>
               </li>
