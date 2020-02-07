@@ -17,13 +17,13 @@
 //H1 and alike
 .heading() {
   font-family: Quicksand, sans-serif;
-  font-size: 19px;
+  font-size: 24px;
   .header-text();
 }
 //H2 and alike
 .subheading() {
   font-family: Quicksand, sans-serif;
-  font-size: 24px;
+  font-size: 19px;
   .header-text();
 }
 //Input labels and button text
@@ -34,3 +34,31 @@
   .header-text();
 }
 
+//BUTTON STYLE MIXINS
+.button(@background, @hover-background, @border-color, @text-color){
+  .label();
+  background: @background;
+  vertical-align: middle;
+  border-radius: 22px;
+  border: 1px solid @border-color;
+  color: @text-color;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 22px;
+    background-image: @hover-background;
+    z-index: -1;
+    transition: opacity 0.2s linear;
+    opacity: 0;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}

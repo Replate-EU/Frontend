@@ -14,14 +14,12 @@ import "./CSS/App.css";
 import FormBusiness from "./Components/Business/FormBusiness";
 import FormVolunteer from "./Components/Volunteer/FormVolunteer";
 import Login from "./Components/Login";
-import Modal from "./Components/Modal/Modal";
 import Navbar from "./Components/Navbar";
 import SignUp from "./Components/SignUp";
 import BusinessDashboard from "./Components/Business/Logged/BusinessDashboard";
 import VolunteerDashboard from "./Components/Volunteer/Logged/VolunteerDashboard";
 import VolunteerPickups from "./Components/Volunteer/Logged/VolunteerPickups";
 import RestrictedRoute from "./auth/restrictedRoute";
-import logo from './icons/Logo.webp';
 
 function App({ appState, user, checkToken, logout }) {
   const history = useHistory();
@@ -32,13 +30,9 @@ function App({ appState, user, checkToken, logout }) {
   }, []);
   return (
     <div className="App">
-
-      
       <Navbar appState={appState} user={user} logout={logout} />
-      
-      <div className="container">
-        
 
+      <div className="container">
         <Switch>
           <Route exact path="/">
             <SignUp />

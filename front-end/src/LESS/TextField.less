@@ -1,15 +1,78 @@
-.form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background: #fff;
-    padding: 40px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0,0,0, .1);
-    box-shadow: 0 5px 10px rgb(0,0,0, .2);
+.form-container {
+  .card-container;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+.form--label {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  .input--label {
+    position: absolute;
+    top: 16px;
+    left: 10px;
+    transition: top 0.3s ease-in-out, left 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  .error {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    color: #cc0033;
+    display: inline-block;
+    font-size: 8px;
+    line-height: 5px;
+    margin: 2px 0 0;
+  }
+}
+
+.form--input {
+  padding-left: 10px;
+  width: 100%;
+  max-width: 320px;
+  height: 44px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @darkshadelight;
+  border-radius: 4px;
+  .plain-text();
+  &:focus,
+  &::hover {
+    border-color: @darkshademedium;
+  }
+}
+
+.inner-form {
+  margin: 0 auto;
+  max-width: 380px;
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px;  
+}
+
+.card-form{
+  max-width: 380px;
+  min-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form--input:focus ~ .input--label,
+.form--input:valid ~ .input--label,
+.form--input:hover ~ .input--label {
+  top: -14px;
+  left: 5px;
+  color: @darkshadeheavy;
+}
+
+/* 
 .form div{
     padding: 10px 0;
     margin-bottom: 10px;
@@ -67,11 +130,4 @@
 .form input:valid, 
 .form text:valid {
     border-bottom: 2px solid #1f2041;;
-}
-.error {
-  color: #cc0033;
-  display: inline-block;
-  font-size: 8px;
-  line-height: 5px;
-  margin: 2px 0 0;
-}
+} */

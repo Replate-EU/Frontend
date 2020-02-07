@@ -68,7 +68,7 @@ export function AccountDetails({
   }
 
   return (
-    <div className="modalCard">
+    <>
       {edit ? (
         <Form
           update={update}
@@ -76,22 +76,31 @@ export function AccountDetails({
           handleSubmit={handleSubmit}
         />
       ) : (
-        <div className="account">
-          <h2>Account Details</h2>
-          <h3>Username: {details.username}</h3>
-          <h3>Account Type: {details.user_type}</h3>
-          <h3>Contact: {details.contact_number}</h3>
+        <div className="account-container">
+          <p className="card--title">Account Details</p>
+          <p className="data-row">
+            <span className="data-label">Username:</span>
+            <span className="data-value">{details.username}</span>
+          </p>
+          <p className="data-row">
+            <span className="data-label">Account Type:</span>
+            <span className="data-value">{details.user_type}</span>
+          </p>
+          <p className="data-row">
+            <span className="data-label">Contact:</span>
+            <span className="data-value">{details.contact_number}</span>
+          </p>
         </div>
       )}
       <button
-        className="colored-btn"
+        className="button-primary button-big"
         onClick={e => {
           showEdit();
         }}
       >
         {edit ? "Cancel" : "Edit Account Details"}
       </button>
-    </div>
+    </>
   );
 }
 

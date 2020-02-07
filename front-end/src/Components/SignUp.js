@@ -9,13 +9,13 @@ export default function SignUp() {
       <div className="dives">
         <div>
           <Link to="/business">
-            <button className="button">I'm a business</button>
+            <button className="button-primary button-big">I'm a business</button>
           </Link>
           <p>I want to promote my business and minimise waste</p>
         </div>
         <div>
           <Link to="/volunteer">
-            <button className="button">I'm a volunteer</button>
+            <button className="button-primary button-big">I'm a volunteer</button>
           </Link>
           <p>I want to receive donations while tasting new tastes</p>
         </div>

@@ -34,41 +34,47 @@ export function BusinessDashboard({
   };
   return (
     <div>
-      <Formik
-        onSubmit={handleSubmit}
-        // validationSchema={validationSchema}
-        initialValues={initialState}
-      >
-        <Form className="form">
-          <div>
-          <label>Type
-          <Field
-            type="text"
-            id="food_type"
-            name="food_type"
-            className="input"/>
-          <ErrorMessage name="food_type" component="div" className="error" />
+      <Formik onSubmit={handleSubmit} initialValues={initialState}>
+        <Form className="inner-form">
+        <h1 className="card--title">New pickup</h1>
+          <label className="form--label">
+            <Field
+              required
+              type="text"
+              id="food_type"
+              name="food_type"
+              className="form--input"
+            />
+            <span className="input--label">Type</span>
+            <ErrorMessage name="food_type" component="div" className="error" />
           </label>
-          </div>
-
-          <div>
-          <label>Preferred time
-          <Field
-            type="text"
-            id="pickup_time"
-            name="pickup_time"
-            className="input" />
-           <ErrorMessage name="pickup_time" component="div" className="error" />
-           </label>
-          </div>
-
-          <div>
-          <label>Quantity
-          <Field type="text" id="quantity" name="quantity" className="input" />
-          <ErrorMessage name="quantity" component="div" className="error" />
+          <label className="form--label">
+            <Field
+              required
+              type="text"
+              id="pickup_time"
+              name="pickup_time"
+              className="form--input"
+            />
+            <ErrorMessage
+              name="pickup_time"
+              component="div"
+              className="error"
+            />
+            <span className="input--label">Preferred time</span>
           </label>
-          </div>
-          <button type="submit">create new pickup</button>
+          <label className="form--label">
+            <Field
+              required
+              type="text"
+              id="quantity"
+              name="quantity"
+              className="form--input"
+            />
+            <span className="input--label">Quantity</span>
+            <ErrorMessage name="quantity" component="div" className="error" />
+          </label>
+          <button className="button-primary button-big"type="submit">create new pickup</button>
         </Form>
       </Formik>
 

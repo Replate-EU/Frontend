@@ -18,13 +18,14 @@ export default function VolunteerPickupCard({
       };
   return (
     <div className="card-container">
+      <p className="card--title">Pickup</p>
       <p className="data-row">
         <span className="data-label">Type:</span>
         <span className="data-value">{pickup.food_type}</span>
       </p>
       <p className="data-row">
         <span className="data-label">Quantity:</span>
-        <span className="data-value">{pickup.quantity * 1000} g</span>
+        <span className="data-value">{pickup.quantity * 1000}g</span>
       </p>
       <p className="data-row">
         <span className="data-label">Pickup time:</span>
@@ -42,17 +43,17 @@ export default function VolunteerPickupCard({
       </p>
       {sad ? (
         <button
-          className="button-small button"
+          className="button-big button-danger"
           onClick={() => handleAction(acceptedPickup)}
         >
-          "Abandon"
+          Abandon
         </button>
       ) : (
         <button
-          className="button-small button"
+          className="button-big button-secondary"
           onClick={() => handleAction(acceptedPickup)}
         >
-          "Accept"
+          Accept
         </button>
       )}
     </div>

@@ -7,16 +7,6 @@ import axiosWithAuth from "../auth/axiosWithAuth";
 import { login } from "../state/actionCreators";
 import { connect } from "react-redux";
 
-const Container = styled.div`
-  display: flex;
-`;
-const Column = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 49%;
-`;
-
 export function Login({ login }) {
   const [type, setType] = useState(true);
 
@@ -41,73 +31,40 @@ export function Login({ login }) {
   }
 
   return (
-    <Container>
-      <Column>
-        <h1>Login</h1>
-        <p>Thanks for your interest</p>
-      </Column>
-      <Column>
-        <p>Log to Your Account</p>
-        <Formik
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-          initialValues={initialState}
-        >
-          <Form className="form">
-            <div>
-              <label>
-                Username
-                <Field
-                  type="text"
-                  name="username"
-                  required
-                />
-                <ErrorMessage
-                  name="username"
-                  component="div"
-                  className="error"
-                />
-              </label>
-            </div>
-
-            {/* <label>E-mail</label>
-            <Field
+    <Formik
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+      initialValues={initialState}
+    >
+      <Form className="form-container">
+        <h1 className="card--title">Login</h1>
+        <label className="form--label">
+          <Field
+            required
             type="text"
-            id="email"
-            name="email"
-            className="input"/>
-            <ErrorMessage name="email" component="div" className="error"/> */}
-            <div>
-              <label>
-                Password
-                <Field
-                  type="password"
-                  id="password"
-                  name="password"
-                  className="input"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="error"
-                />
-              </label>
-            </div>
-
-            {/* <label>Account type: </label> */}
-            {/* <button type="button" onClick={handleType}>
-              {type ? "VOLUNTEER" : "BUSINESS"}
-            </button> */}
-
-            {/* <ErrorMessage name="user_type" component="div" className="error"/> */}
-
-            <button className="button button-big" id="button" type="submit">
-              LOGIN
-            </button>
-          </Form>
-        </Formik>
-      </Column>
-    </Container>
+            name="username"
+            required
+            className="form--input"
+          />
+          <span className="input--label">Username</span>
+          <ErrorMessage name="username" component="div" className="error" />
+        </label>
+        <label className="form--label">
+          <Field
+            required
+            type="password"
+            id="password"
+            name="password"
+            className="form--input"
+          />
+          <span className="input--label">Password</span>
+          <ErrorMessage name="password" component="div" className="error" />
+        </label>
+        <button className="button-primary button-big" id="button" type="submit">
+          LOGIN
+        </button>
+      </Form>
+    </Formik>
   );
 }
 
