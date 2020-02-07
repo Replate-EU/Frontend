@@ -1,17 +1,42 @@
 .signup {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  h1 {
+    margin: 50px;
+    width: 100%;
+  }
+  .dives {
     display: flex;
-    flex-flow: column;
-    text-align: center;
-    h1 {
-        margin: 50px;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100vw;
+    .button {
+      padding: 10px 100px;
+      font-size: 20px;
     }
-    .dives{
-        display: flex;
-        justify-content: space-evenly;
-        width: 100vw;
-        .button {
-            padding: 10px 100px;
-            font-size: 20px;
-        }
-    }
+  }
+  p{
+      width: 300px;
+      margin-top: 20px;
+  }
+}
+
+.sign-up {
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  z-index: 1;
+}
+.img-wrapper {
+  background: radial-gradient(@green, #ffffff);
+  height: 320px;
+  width: 320px;
+  border-radius: 50%;
+  z-index: -1;
+  margin-bottom: 20px;
+}
+
+.signup-card{
+    margin: 0 10px;
 }
